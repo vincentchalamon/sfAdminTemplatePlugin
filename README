@@ -1,0 +1,14 @@
+This plugin is available for symfony 1.4.
+It offers an admin template with its admin generator theme.
+To use it, enable plugin and configure view.yml with "admin" or "clean" layout.
+AdminGenerator theme is "admin_template".
+Configure admin menus :
+all:
+  sf_admin_template:
+    menus:
+      article:
+        label: Articles
+        credentials: []
+        route_prefix: article
+Vincent CHALAMON <vincent@epfactory.com>
+http://www.epfactory.com
