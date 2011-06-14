@@ -1,6 +1,6 @@
 html, body {height: 100%;}
 body {height: 100%; font-family: Arial, Helvetica, sans-serif; font-size: 12px; margin: 0; padding: 0; background:#eaeaea url('../images/bg_stripe.png'); color: #666;}
-p {padding: 0; margin: 0;}
+p {padding: 0; margin: 0; clear: both;}
 ul, li {list-style: none; padding: 0; margin: 0;}
 img {border: none;}
 h1, h2, h3, h4, h5 {padding: 0; margin: 0;}
@@ -9,7 +9,7 @@ h1, h2, h3, h4, h5 {padding: 0; margin: 0;}
 .clear {clear: both;}
 .red {color: #C61B1B;}
 .green {color: #98B22B; }
-.smltxt {display: block; font-size: 0.9em; font-style: italic;}
+.smltxt {display: block; font-size: 0.9em; font-style: italic; margin-top: 5px;}
 .hoverimg {background: #ccc; padding: 3px; float: left;}
 .hoverimg:hover {cursor: pointer; background: #e4e4e4;}
 
@@ -52,8 +52,8 @@ table tfoot .jqTransformSelectWrapper {float: left;}
 .user, .notifications {float: right; width:195px; padding: 10px; color: #ccc; text-shadow: 1px 1px 1px #111;}
 .notifications {width: 140px; margin-top: 5px;}
 .user img {float: right;}
-.username {color: #fff; font-size: 18px; font-weight:700; letter-spacing: -1px;}
-.userbtn {text-shadow: none; float: left; padding-right: 5px; text-align: center;}
+.username {color: #fff; font-size: 18px; font-weight:700; letter-spacing: -1px; clear: none;}
+.userbtn {text-shadow: none; float: left; padding-right: 5px; text-align: center; clear: none;}
 .userbtn a {display: block; color: #000; text-shadow: 1px 1px 1px #eee; font-size: 11px; padding: 2px 5px; background: #ccc url(../images/bg_btn_grey_sml.png) repeat-x top; border: 1px solid #000; text-decoration: none; border-radius: 5px; -webkit-border-radius: 5px; -moz-border-radius: 5px;}
 .userbtn a:hover {color: #fff; background: #eee url(../images/bg_btn_grey_sml.png) 0 -30px; text-shadow: none;}
 
@@ -78,8 +78,8 @@ ul.navigation li.selected {width: 226px; z-index: 2; position: relative; padding
 .headings h2 {padding-top: 7px; font-size: 1.5em;}
 .contentbox {padding: 15px; border-right: 1px solid #CACACA; border-bottom: 1px solid #CACACA; border-left: 1px solid #CACACA; border-bottom-left-radius: 10px; border-bottom-right-radius: 10px; -moz-border-radius-bottomright: 10px; -moz-border-radius-bottomleft: 10px; -webkit-border-bottom-left-radius: 10px; -webkit-border-bottom-right-radius: 10px;}
 .nopad {padding: 0;}
-.contentbox p {padding-bottom: 15px;}
-.contentbox p.errors {padding-bottom: 5px;}
+.contentbox div.sf_admin_form_row {margin-bottom: 15px; clear: both;}
+.contentbox div.sf_admin_form_row.errors {margin-bottom: 5px;}
 .contentbox a, #notificationsbox a {color: #666;}
 .contentbox a:hover, #notificationsbox a:hover {color: #333;}
 
@@ -133,6 +133,7 @@ p.bottominfo {padding: 10px 15px;}
 table {border-collapse: collapse;}
 th,td {text-align: left; padding: 8px 3px;}
 th {background: #E0E0E0 url(../images/bg_th.png) repeat-x top; text-shadow: 1px 1px 1px #fff; font-size: 1.2em;}
+thead a, tfoot a {text-decoration: none;}
 tr.alt td, tr.odd td, tr.even td{text-shadow: 1px 1px 1px #fff;}
 tr.sf_admin_row:hover {background: #ddd;}
 
@@ -148,14 +149,12 @@ fieldset {border: none;}
 .jqTransformInputWrapper input {width: 100% !important;}
 /*form .jqTransformSelectWrapper {float: left; margin: 0 2px;}*/
 select {padding: 7px 10px; border: 1px solid #ccc; border-radius: 5px; -moz-border-radius: 5px; -webkit-border-radius: 5px;}
-label {cursor: pointer; padding-right: 20px; display: block; padding-bottom: 10px; font-weight: bold;}
+#container label {cursor: pointer; padding-right: 20px; display: block; padding-bottom: 10px; font-weight: bold;}
 .right label {width: 200px;}
-.sf_admin_form label {clear: both;}
+/*.sf_admin_form label {clear: both;}*/
 input, textarea {font-family: Arial, Helvetica, sans-serif;}
-.inputbox {border: 1px solid #999; padding: 10px; width: 100%; -moz-border-radius: 3px; border-radius: 3px; -webkit-border-radius: 3px; margin-bottom: 5px; color: #666; background: url(../images/bg_fade_sml.png) repeat-x top;}
-.inputbox:focus {border: 1px solid #666;}
+.inputbox, form input[type="text"], form input[type="password"] {border: 1px solid #999; padding: 10px; width: 100%; -moz-border-radius: 3px; border-radius: 3px; -webkit-border-radius: 3px; margin-bottom: 5px; color: #666; background: url(../images/bg_fade_sml.png) repeat-x top;}
 .errorbox {border: 1px solid #CC0000; background: #FCF0EF url(../images/bg_fade_red_sml.png) repeat-x top; color: #CC0000; margin-right: 5px;}
-.errorbox:focus {border: 1px solid #8A0000;}
 .correctbox {border: 1px solid #9DB832; background: #F3F8E0 url(../images/bg_fade_green_sml.png) repeat-x top;; color: #9DB832; margin-right: 5px;}
 .correctbox:focus {border: 1px solid #7C9227;}
 .smallbox {width: 150px;}
@@ -164,10 +163,10 @@ input, textarea {font-family: Arial, Helvetica, sans-serif;}
 
 .status {padding: 8px 10px 5px 10px; border-radius: 10px; -moz-border-radius: 10px; -webkit-border-radius: 10px; text-shadow: 1px 1px 1px #fff; margin-bottom: 20px; clear: both;}
 .status img {float: left; padding-right: 5px;}
-.status p {padding: 0; margin: 0;}
+.status p {padding: 0; margin: 0; clear: none;}
 .status p span {font-weight: 700;}
 .status .closestatus {float: right; color: #fff; text-align: center; margin-left: 10px;}
-.status .closestatus a {position: relative; color: #fff; text-decoration: none; padding: 5px; width: 10px; height: 10px; display: block; border-radius: 5px; -webkit-border-radius: 5px; -moz-border-radius: 5px; line-height: .6em; top: -2px; text-shadow: none;}
+.status .closestatus a {position: relative; color: #fff; text-decoration: none; padding: 5px; width: 10px; height: 10px; display: block; border-radius: 5px; -webkit-border-radius: 5px; -moz-border-radius: 5px; line-height: .6em; top: -5px; text-shadow: none;}
 
 .warning {border: 3px solid #BF9900; background: #FEEB9C url(../images/bg_fade_yellow_med.png) repeat-x top;}
 .warning span {color: #BF9900;}
@@ -264,10 +263,18 @@ a.enhanced_toggleResult {display: none;}
 /** CUSTOM ADMIN **/
 .error_list {color: red; font-weight: bold; padding: 5px; background: #FFE87C; -webkit-border-radius: 3px; -moz-border-radius: 3px; border-radius: 3px;}
 .sf_admin_row {cursor: pointer;}
-.object_actions {display: none; background: white url(../images/bg_fade_med.png) repeat-x top; font-weight: bold;}
-.sf_admin_actions li, .sf_admin_td_actions li {float: left; margin: 0 5px; line-height: 30px;}
+.sf_admin_row_object_actions {display: none;}
+.sf_admin_actions li, .sf_admin_td_actions li {float: left; margin: 32px 10px 10px 10px; opacity: 0.5; filter : alpha(opacity=50); -moz-opacity : 0.5; -ms-filter: "alpha(opacity=50)";}
+.sf_admin_actions li:hover, .sf_admin_td_actions li:hover {opacity: 1; filter : alpha(opacity=100); -moz-opacity : 1; -ms-filter: "alpha(opacity=100)";}
 .sf_admin_actions li img, .sf_admin_td_actions li img {max-height: 18px; max-width: 18px; margin-top: 2px;}
 /** END CUSTOM ADMIN **/
 .contentbox th, .contentbox td {padding-left: 10px;}
 
 .ui-datepicker-calendar th {color: #555;}
+
+/* object actions */
+.sf_admin_object_actions_list .sf_admin_td_actions li a{font-weight: bold; font-size: 1.1em; color: white; text-decoration: none;padding-top: 32px; background: url("../images/btn_default.png") no-repeat center top;}
+.sf_admin_object_actions_list .sf_admin_td_actions li.sf_admin_action_edit a{background-image: url("../images/btn_edit.png");}
+.sf_admin_object_actions_list .sf_admin_td_actions li.sf_admin_action_delete a{background-image: url("../images/btn_edit.png");}
+.sf_admin_object_actions_list .sf_admin_td_actions li.sf_admin_action_show a{background-image: url("../images/btn_view.png");}
+.sf_admin_object_actions_list .sf_admin_td_actions li.sf_admin_action_add a{background-image: url("../images/btn_add.png");}

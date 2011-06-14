@@ -40,8 +40,8 @@
           [?php include_partial('<?php echo $this->getModuleName() ?>/list_td_<?php echo $this->configuration->getValue('list.layout') ?>', array('<?php echo $this->getSingularName() ?>' => $<?php echo $this->getSingularName() ?>)) ?]
         </tr>
 <?php if ($this->configuration->getValue('list.object_actions')): ?>
-        <tr class="object_actions">
-          [?php include_partial('<?php echo $this->getModuleName() ?>/list_td_actions', array('<?php echo $this->getSingularName() ?>' => $<?php echo $this->getSingularName() ?>, 'helper' => $helper)) ?]
+        <tr class="sf_admin_row_object_actions">
+          [?php include_partial('<?php echo $this->getModuleName() ?>/list_td_actions', array('<?php echo $this->getSingularName() ?>' => $<?php echo $this->getSingularName() ?>, 'helper' => $helper, 'i' => $i)) ?]
         </tr>
 <?php endif; ?>
       [?php endforeach; ?]

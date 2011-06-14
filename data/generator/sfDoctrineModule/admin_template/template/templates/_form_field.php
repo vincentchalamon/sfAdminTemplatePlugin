@@ -7,7 +7,7 @@
   [?php if($form[$name]->hasError()): ?]
     [?php if(isset($attributes['class'])) $attributes['class'].= ' errorbox'; else $attributes['class'] = 'errorbox' ?]
   [?php endif ?]
-  <p class="[?php echo $class ?][?php $form[$name]->hasError() and print ' errors' ?]">
+  <div class="[?php echo $class ?][?php $form[$name]->hasError() and print ' errors' ?]">
     [?php echo $form[$name]->renderLabel($label, $form[$name]->hasError() ? array('class' => 'red') : array()) ?]
     [?php echo $form[$name]->render($attributes) ?]
     [?php if ($help): ?]
@@ -18,5 +18,5 @@
     [?php if($form[$name]->hasError()): ?]
       <span class="smltxt red">[?php echo $form[$name]->renderError() ?]</span>
     [?php endif ?]
-  </p>
+  </div>
 [?php endif; ?]

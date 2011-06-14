@@ -1,8 +1,18 @@
+[?php use_javascript(public_path('/sfAdminTemplatePlugin/js/jquery.fancybox-1.3.4.pack.js')) ?]
+[?php use_stylesheet(public_path('/sfAdminTemplatePlugin/css/jquery.fancybox-1.3.4.css')) ?]
 <script type="text/javascript">
   $(document).ready(function(){
+    // Object actions
+    $('.sf_admin_row_object_actions a.fancybox').fancybox({
+      overlayColor: "#000",
+      opacity: true
+    });
+    $('.sf_admin_row').live('click', function(){
+      $(this).next('.sf_admin_row_object_actions').find('a.fancybox').click();
+    });
+    // Batch actions
     if($('.contentbox tfoot select[name=batch_action] option').length <= 1) {
-      $('.contentbox tfoot select[name=batch_action]').remove().next('input:submit').remove();
-      $('.contentbox tfoot input:submit, .contentbox tfoot input:hidden').remove();
+      $('.contentbox tfoot select[name=batch_action], .contentbox tfoot input:submit, .contentbox tfoot input:hidden').remove();
     }
   });
 </script>

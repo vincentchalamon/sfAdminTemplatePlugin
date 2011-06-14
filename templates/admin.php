@@ -24,6 +24,9 @@
           <p class="username"><?php echo $sf_user->getGuardUser()->getUsername() ?></p>
           <p class="userbtn"><?php echo link_to("Déconnexion", "@sf_guard_signout", array('title' => 'Déconnexion')) ?></p>
         </div>
+        <?php if(is_file(sfConfig::get('sf_app_template_dir').'/_header.php')): ?>
+          <?php include_partial("global/header") ?>
+        <?php endif ?>
       </div>
 
       <?php $menus = sfConfig::get('app_sf_admin_template_menus', array()) ?>

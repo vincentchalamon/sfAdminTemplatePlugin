@@ -11,20 +11,16 @@ class sfAdminTemplateView extends sfPHPView
       $this->decoratorDirectory = sfConfig::get('sf_plugins_dir').DIRECTORY_SEPARATOR."sfAdminTemplatePlugin".DIRECTORY_SEPARATOR."templates";
       $this->decorator = true;
       // Stylesheets
-      foreach($response->getStylesheets() as $file => $options) {
-        $response->removeStylesheet($file);
-      }
-      $stylesheets = array('/sfAdminTemplatePlugin/css/layout.css', '/sfAdminTemplatePlugin/css/styles.css', '/sfAdminTemplatePlugin/js/jqtransformplugin/jqtransform.css', '/sfAdminTemplatePlugin/js/validationEngine/validationEngine.jquery.css');
+      $stylesheets = array('/sfAdminTemplatePlugin/css/layout.css', '/sfAdminTemplatePlugin/css/styles.css', '/sfAdminTemplatePlugin/js/jqtransformplugin/jqtransform.css');
       foreach($stylesheets as $css) {
-        $response->addStylesheet($css, '', array('media' => 'all'));
+        $response->addStylesheet($css, 'first', array('media' => 'all'));
       }
       // Javascripts
-      foreach($response->getJavascripts() as $file => $options) {
-        $response->removeJavascript($file);
-      }
-      $javascripts = array('/sfAdminTemplatePlugin/js/jquery-1.5.1.min.js', '/sfAdminTemplatePlugin/js/jqtransformplugin/jquery.jqtransform.js', '/sfAdminTemplatePlugin/js/jquery.maskedinput-1.2.2.min.js', '/sfAdminTemplatePlugin/js/validationEngine/jquery.validationEngine-fr.js', '/sfAdminTemplatePlugin/js/validationEngine/jquery.validationEngine.js', '/sfAdminTemplatePlugin/js/admin.js');
+      $javascripts = is_dir(sfConfig::get('sf_plugins_dir').'/sfEPFactoryFormPlugin') ? array('/sfEPFactoryFormPlugin/js/jquery.min.js') : array('/sfAdminTemplatePlugin/js/jquery-1.5.1.min.js');
+      $javascripts[] = '/sfAdminTemplatePlugin/js/jqtransformplugin/jquery.jqtransform.js';
+      $javascripts[] = '/sfAdminTemplatePlugin/js/admin.js';
       foreach($javascripts as $js) {
-        $response->addJavascript($js);
+        $response->addJavascript($js, preg_match('/(jquery\.min\.js|jquery\-1\.5\.1\.min\.js)/i', $js) ? 'first' : '');
       }
       // Load template
       if($response->getStatusCode() != 200) {
@@ -36,11 +32,4 @@ class sfAdminTemplateView extends sfPHPView
       }
     }
   }
-
- /* protected function decorate($content) {
-    if(preg_match('/^admin/i', $this->getDecoratorTemplate())) {
-      //sfAdminTemplateRender
-      if($response->getStatusCode() != 200) {}
-    }
-  }*/
 }

@@ -1,27 +1,3 @@
-[?php if (count($configuration->getFormFields($form, $form->isNew() ? 'new' : 'edit')) > 1): ?]
-  [?php use_javascript(public_path('/js/jqueryui/jquery-ui-1.8.4.custom.min.js')) ?]
-  <script type="text/javascript">
-    $(document).ready(function(){
-      $("#tabs").tabs({
-        select: function(event, ui){
-          $('.jqTransformInputWrapper', ui.panel).each(function(){
-            if($('input:text', $(this)).length && $('input:text:first', $(this)).attr('largeur')) {
-              $(this).width($('input:text:first', $(this)).attr('largeur'));
-            }
-          });
-        },
-        show: function(event, ui){
-          $('.formError').remove();
-          $('.jqTransformInputWrapper', ui.panel).each(function(){
-            if($('input:text', $(this)).length && $('input:text:first', $(this)).attr('largeur')) {
-              $(this).animate({width: $('input:text:first', $(this)).attr('largeur')});
-            }
-          });
-        }
-      });
-    });
-  </script>
-[?php endif ?]
 <script type="text/javascript">
   $(document).ready(function(){
     $(".contentbox fieldset").each(function(){
@@ -38,18 +14,9 @@
 [?php include_partial('<?php echo $this->getModuleName() ?>/assets') ?]
 [?php include_partial('<?php echo $this->getModuleName() ?>/flashes') ?]
 
-<div class="contentcontainer" id="tabs">
+<div class="contentcontainer">
   <div class="headings">
-    <h2>
-      [?php echo <?php echo $this->getI18NString('edit.title') ?> ?]
-      [?php if (count($configuration->getFormFields($form, $form->isNew() ? 'new' : 'edit')) > 1): ?]
-        <ul class="smltabs">
-          [?php foreach ($configuration->getFormFields($form, $form->isNew() ? 'new' : 'edit') as $fieldset => $fields): ?]
-            <li><a href="#sf_fieldset_[?php echo preg_replace('/[^a-z0-9_]/', '_', strtolower($fieldset)) ?]">[?php echo $fieldset ?]</a></li>
-          [?php endforeach ?]
-        </ul>
-      [?php endif ?]
-    </h2>
+    <h2>[?php echo <?php echo $this->getI18NString('edit.title') ?> ?]</h2>
   </div>
 
   [?php include_partial('<?php echo $this->getModuleName() ?>/form_header', array('<?php echo $this->getSingularName() ?>' => $<?php echo $this->getSingularName() ?>, 'form' => $form, 'configuration' => $configuration)) ?]

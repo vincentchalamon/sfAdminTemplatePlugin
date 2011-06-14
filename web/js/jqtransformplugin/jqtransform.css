@@ -86,9 +86,13 @@ button.jqTransformButton_click span { background-position: right -66px ; }
 	height: 31px;
 	color:#404040;	
 	border: none;
-	padding: 8px 0px 0px 0px;
+	padding: 0px 0px 0px 0px;
 	margin: 0px;
 	background:transparent;
+}
+
+.chrome .jqTransformInputInner div input {
+  padding-top: 8px;
 }
 
 /*  IE6 */
