@@ -27,6 +27,12 @@ $(document).ready(function(){
     $('#main_menu_next').fadeOut();
   });
 
+  // Login form
+  $('#innerlogin form').live('submit', function(){
+    $('input:submit', $(this)).remove();
+    $(this).append('<img src="/sfAdminTemplatePlugin/images/ajax-loader.gif" alt="Chargement..." class="loading" />');
+  });
+
   // Form placeholder
   if(!navigator.userAgent.match('Chrome')) {
     $('input:text, textarea').focus(function(){

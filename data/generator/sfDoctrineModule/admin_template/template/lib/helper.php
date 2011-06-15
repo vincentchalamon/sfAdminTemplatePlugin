@@ -17,7 +17,7 @@ abstract class Base<?php echo ucfirst($this->getModuleName()) ?>GeneratorHelper 
 
   public function linkToNew($params)
   {
-    return '<li class="sf_admin_action_add">'.link_to(__($params['label'], array(), 'sf_admin'), '@'.$this->getUrlForAction('new'), array('title' => __($params['label'], array(), 'sf_admin'))).'</li>';
+    return '<li>'.link_to(__($params['label'], array(), 'sf_admin'), '@'.$this->getUrlForAction('new'), array('title' => __($params['label'], array(), 'sf_admin'))).'</li>';
   }
 
   public function linkToEdit($object, $params)

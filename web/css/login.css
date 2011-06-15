@@ -10,3 +10,4 @@ body {background: #E5E5E5 url(../images/bg_login_page.png) repeat-x top;}
 #innerlogin p a {background: #ccc url(../images/bg_forgotten_password.png) repeat-x top; text-shadow: 1px 1px 1px #fff; color: #666; font-size: 11px; padding: 4px 10px; border-radius: 5px; -moz-border-radius: 5px; text-decoration: none;}
 #innerlogin p a:hover {background: #ccc url(../images/bg_forgotten_password.png) 0 -25px; color: #333;}
 #logincontainer .jqTransformInputWrapper {width: 100% !important;}
+#logincontainer .loading {margin: 37px 0 21px 0;}
