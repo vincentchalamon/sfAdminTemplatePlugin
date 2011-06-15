@@ -10,7 +10,7 @@
   <?php echo $this->addCredentialCondition('[?php echo $helper->linkToDelete($form->getObject(), '.$this->asPhp($params).') ?]', $params) ?>
 
 <?php elseif ('_list' == $name): ?>
-  <?php echo $this->addCredentialCondition('[?php echo $helper->linkToList('.$this->asPhp($params).') ?]', $params) ?>
+  <?php echo $this->addCredentialCondition('[?php echo !$sf_request->isXmlHttpRequest() ? $helper->linkToList('.$this->asPhp($params).') : null ?]', $params) ?>
 
 <?php elseif ('_save' == $name): ?>
   <?php echo $this->addCredentialCondition('[?php echo $helper->linkToSave($form->getObject(), '.$this->asPhp($params).') ?]', $params) ?>

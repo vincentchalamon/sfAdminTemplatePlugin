@@ -35,7 +35,7 @@ ul.pagination li.page a:hover {background: #00789F url(../images/bg_buttons.png)
 .logininput {background: #fff url(../images/bg_login_input.png) repeat-x top;}
 .logininput:focus {border: 1px solid #09C; color: #09C;}
 
-#logincontainer .loginbtn {background: #3197CA url(../images/bg_login_btn.png) repeat-x top; border-radius: 8px; -moz-border-radius: 8px; -webkit-border-radius: 8px; border: none; font-size: 25px; font-weight: 700; text-shadow: 1px 1px 1px #9cced6; color: #1C5571; width: 260px; padding: 11px 0; margin: 5px 0 0 0; display: block; cursor: pointer; border-top: 1px solid #BEDFEF; letter-spacing: -1px;}
+#logincontainer .loginbtn {background: #3197CA url(../images/bg_login_btn.png) repeat-x top; border-radius: 8px; -moz-border-radius: 8px; -webkit-border-radius: 8px; border: none; font-size: 25px; font-weight: 700; text-shadow: 1px 1px 1px #9cced6; color: #1C5571; width: 260px; padding: 11px 0; margin: 15px 0 0 0; display: block; cursor: pointer; border-top: 1px solid #BEDFEF; letter-spacing: -1px;}
 
 #logincontainer .loginbtn:hover {background: #3197CA url(../images/bg_login_btn.png) 0 -60px; cursor: pointer; color: #103141;}
 

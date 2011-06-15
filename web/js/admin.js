@@ -38,8 +38,8 @@ $(document).ready(function(){
         $(this).val($(this).attr('title'));
       }
     }).each(function(){
-      if($(this).val() == $(this).attr('title')) {
-        $(this).val('');
+      if(!$(this).val()) {
+        $(this).val($(this).attr('title'));
       }
     });
   }
@@ -53,11 +53,18 @@ $(document).ready(function(){
     $(this).parents('.status').fadeOut();
   });
 
+  // Fancybox
+  $('.fancybox').fancybox({
+    overlayColor: "#000",
+    padding: 0,
+    margin: 0
+  });
+
   // jqTransform
-  $(".sf_admin_form select:not(.noTransform)").jqTransSelect();
-  $(".sf_admin_form input:radio:not(.noTransform)").jqTransRadio();
-  $(".sf_admin_form input:checkbox:not(.noTransform)").jqTransCheckBox();
-  $('input:text:not(.noTransform), input:password:not(.noTransform)').jqTransInputText();
-  $('textarea:not(.ckeditorDone, .noTransform)').jqTransTextarea();
-  $('input:submit:not(.btn, .btnalt, .noTransform), input:reset:not(.btn, .btnalt, .noTransform), input:button:not(.btn, .btnalt, .noTransform)').jqTransInputButton();
+  $(".sf_admin_form select:visible:not(.noTransform)").jqTransSelect();
+  $(".sf_admin_form input:visible:radio:not(.noTransform)").jqTransRadio();
+  $(".sf_admin_form input:visible:checkbox:not(.noTransform)").jqTransCheckBox();
+  $('input:visible:text:not(.noTransform), input:visible:password:not(.noTransform)').jqTransInputText();
+  $('textarea:visible:not(.ckeditorDone, .noTransform)').jqTransTextarea();
+  $('input:visible:submit:not(.btn, .btnalt, .noTransform), input:visible:reset:not(.btn, .btnalt, .noTransform), input:visible:button:not(.btn, .btnalt, .noTransform)').jqTransInputButton();
 });

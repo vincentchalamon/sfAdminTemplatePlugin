@@ -1,11 +1,11 @@
-[?php use_javascript(public_path('/sfAdminTemplatePlugin/js/jquery.fancybox-1.3.4.pack.js')) ?]
-[?php use_stylesheet(public_path('/sfAdminTemplatePlugin/css/jquery.fancybox-1.3.4.css')) ?]
 <script type="text/javascript">
   $(document).ready(function(){
     // Object actions
     $('.sf_admin_row_object_actions a.fancybox').fancybox({
       overlayColor: "#000",
-      opacity: true
+      showCloseButton: false,
+      padding: 0,
+      margin: 0
     });
     $('.sf_admin_row').live('click', function(){
       $(this).next('.sf_admin_row_object_actions').find('a.fancybox').click();
