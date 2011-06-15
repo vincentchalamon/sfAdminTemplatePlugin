@@ -17,12 +17,12 @@ abstract class Base<?php echo ucfirst($this->getModuleName()) ?>GeneratorHelper 
 
   public function linkToNew($params)
   {
-    return '<li>'.link_to(image_tag(public_path('/sfAdminTemplatePlugin/images/icon_new.png'), array('alt' => __($params['label'], array(), 'sf_admin'), 'title' => __($params['label'], array(), 'sf_admin')))." ".__($params['label'], array(), 'sf_admin'), '@'.$this->getUrlForAction('new'), array('title' => __($params['label'], array(), 'sf_admin'))).'</li>';
+    return '<li class="sf_admin_action_add">'.link_to(__($params['label'], array(), 'sf_admin'), '@'.$this->getUrlForAction('new'), array('title' => __($params['label'], array(), 'sf_admin'))).'</li>';
   }
 
   public function linkToEdit($object, $params)
   {
-    return '<li>'.link_to(image_tag(public_path('/sfAdminTemplatePlugin/images/icon_edit.png'), array('alt' => __($params['label'], array(), 'sf_admin'), 'title' => __($params['label'], array(), 'sf_admin')))." ".__($params['label'], array(), 'sf_admin'), $this->getUrlForAction('edit'), $object).'</li>';
+    return '<li class="sf_admin_action_edit">'.link_to(__($params['label'], array(), 'sf_admin'), $this->getUrlForAction('edit'), $object).'</li>';
   }
 
   public function linkToDelete($object, $params)
@@ -32,7 +32,7 @@ abstract class Base<?php echo ucfirst($this->getModuleName()) ?>GeneratorHelper 
       return '';
     }
 
-    return '<li>'.link_to(image_tag(public_path('/sfAdminTemplatePlugin/images/icon_missing.png'), array('alt' => __($params['label'], array(), 'sf_admin'), 'title' => __($params['label'], array(), 'sf_admin')))." ".__($params['label'], array(), 'sf_admin'), $this->getUrlForAction('delete'), $object, array('method' => 'delete', 'confirm' => "Êtes-vous sûr(e) de vouloir supprimer cet élément ?")).'</li>';
+    return '<li class="sf_admin_action_delete">'.link_to(__($params['label'], array(), 'sf_admin'), $this->getUrlForAction('delete'), $object, array('method' => 'delete', 'confirm' => "Êtes-vous sûr(e) de vouloir supprimer cet élément ?")).'</li>';
   }
 
   public function linkToList($params)
