@@ -4,11 +4,16 @@ class sfAdminTemplateView extends sfPHPView
 {
   public function configure() {
     parent::configure();
+    $response = $this->context->getResponse();
     // Use admin theme
+    if($response->getStatusCode() != 200) {
+      $this->decoratorTemplate = "clean".$this->getExtension();
+    }
     if(preg_match('/^(admin|clean)/i', $this->getDecoratorTemplate(), $matches)) {
-      $response = $this->context->getResponse();
-      //$response = new sfWebResponse();
-      $this->decoratorDirectory = sfConfig::get('sf_plugins_dir').DIRECTORY_SEPARATOR."sfAdminTemplatePlugin".DIRECTORY_SEPARATOR."templates";
+      $this->decoratorDirectory = sfConfig::get('sf_app_template_dir');
+      if(!is_file($this->decoratorDirectory.DIRECTORY_SEPARATOR.$this->getDecoratorTemplate())) {
+        $this->decoratorDirectory = sfConfig::get('sf_plugins_dir').DIRECTORY_SEPARATOR."sfAdminTemplatePlugin".DIRECTORY_SEPARATOR."templates";
+      }
       $this->decorator = true;
       // Stylesheets
       $stylesheets = array('/sfAdminTemplatePlugin/css/layout.css', '/sfAdminTemplatePlugin/css/styles.css', '/sfAdminTemplatePlugin/js/jqtransformplugin/jqtransform.css', '/sfAdminTemplatePlugin/css/jquery.fancybox-1.3.4.css');
@@ -23,13 +28,8 @@ class sfAdminTemplateView extends sfPHPView
       foreach($javascripts as $js) {
         $response->addJavascript($js, preg_match('/(jquery\.min\.js|jquery\-1\.5\.1\.min\.js)/i', $js) ? 'first' : '');
       }
-      // Load template
       if($response->getStatusCode() != 200) {
-        $this->decoratorTemplate = "clean".$this->getExtension();
         $response->addStylesheet('/sfAdminTemplatePlugin/css/login.css', '', array('media' => 'all'));
-      }
-      else {
-        $this->decoratorTemplate = $this->getDecoratorTemplate();
       }
     }
   }
