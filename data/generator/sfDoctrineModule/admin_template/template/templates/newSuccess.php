@@ -6,6 +6,11 @@
         $('a[href=#' + $(this).attr('id') + ']').parent().remove();
       }
     });
+    $(".sf_admin_form fieldset").each(function(){
+      if(!$(".sf_admin_form_row", $(this)).length) {
+        $(this).remove();
+      }
+    });
   });
 </script>
 [?php use_helper('I18N', 'Date') ?]

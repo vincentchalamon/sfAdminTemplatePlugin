@@ -1,5 +1,5 @@
 <?php if ($actions = $this->configuration->getValue('list.actions')): ?>
-<ul>
+<ul class="sf_admin_list_actions">
 <?php foreach ($actions as $name => $params): ?>
 <?php if ('_new' == $name): ?>
 <?php echo $this->addCredentialCondition('[?php echo $helper->linkToNew('.$this->asPhp($params).') ?]', $params)."\n" ?>
@@ -10,4 +10,5 @@
 <?php endif; ?>
 <?php endforeach; ?>
 </ul>
+<div style="clear: both"></div>
 <?php endif; ?>

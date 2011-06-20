@@ -269,7 +269,7 @@ a.enhanced_toggleResult {display: none;}
 .sf_admin_object_actions_list li:hover {opacity: 1; filter : alpha(opacity=100); -moz-opacity : 1; -ms-filter: "alpha(opacity=100)";}
 .sf_admin_actions li img, .sf_admin_td_actions li img {max-height: 18px; max-width: 18px; margin-top: 2px;}
 /** END CUSTOM ADMIN **/
-.contentbox th, .contentbox td {padding-left: 10px;}
+.contentbox th, .contentbox td {padding: 8px 10px;}
 
 .ui-datepicker-calendar th {color: #555;}
 
@@ -280,3 +280,6 @@ a.enhanced_toggleResult {display: none;}
 .sf_admin_object_actions_list .sf_admin_td_actions li.sf_admin_action_show a{background-image: url("../images/btn_view.png");}
 .sf_admin_object_actions_list .sf_admin_td_actions li.sf_admin_action_add a{background-image: url("../images/btn_add.png");}
 #fancybox-content{-moz-box-shadow: 0 0 2px 2px #999; -webkit-box-shadow: 0 0 2px 2px #999; box-shadow: 0 0 2px 2px #999;}
+.sf_admin_list_actions li {float: left; margin: 5px; line-height: 16px; background: url("../images/icon_default.png") no-repeat left top;}
+.sf_admin_list_actions li a {padding-left: 20px; text-decoration: none;}
+.sf_admin_list_actions li.sf_admin_action_add {background-image: url("../images/icon_add.png");}
