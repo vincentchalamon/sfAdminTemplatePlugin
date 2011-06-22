@@ -24,10 +24,14 @@ abstract class Base<?php echo ucfirst($this->getModuleName()) ?>GeneratorConfigu
       'actions' => $this->getShowActions(),
       'title' => $this->getShowTitle()
     );
+    $this->parseVariables('show', 'title');
     foreach ($this->configuration['show']['actions'] as $action => $parameters)
     {
       $this->configuration['show']['actions'][$action] = $this->fixActionParameters($action, $parameters);
     }
+    $actions = $this->getActionsDefault();
+    $this->configuration['credentials']['show'] = isset($actions['_show']['credentials']) ? $actions['_show']['credentials'] : array();
+    $this->configuration['credentials']['batchShow'] = isset($actions['_show']['credentials']) ? $actions['_show']['credentials'] : array();
   }
 
   /**

@@ -6,9 +6,9 @@
     [?php foreach ($fields->getRawValue() as $name => $options): ?]
       [?php if ($name == "id") continue ?]
       [?php if (preg_match('/^_.*/i', $name)): ?]
-        [?php include_partial('<?php echo $this->getModuleName() ?>/'.substr($name, 1)) ?]
+        [?php include_partial('<?php echo $this->getModuleName() ?>/'.substr($name, 1), array('<?php echo $this->getSingularName() ?>' => $<?php echo $this->getSingularName() ?>)) ?]
       [?php elseif (preg_match('/^~.*/i', $name)): ?]
-        [?php include_component('<?php echo $this->getModuleName() ?>', substr($name, 1)) ?]
+        [?php include_component('<?php echo $this->getModuleName() ?>', substr($name, 1), array('<?php echo $this->getSingularName() ?>' => $<?php echo $this->getSingularName() ?>)) ?]
       [?php else: ?]
         [?php include_partial('<?php echo $this->getModuleName() ?>/show_field', array(
           'name'       => $name,
