@@ -6,7 +6,7 @@ class sfAdminTemplateView extends sfPHPView
     parent::configure();
     $response = $this->context->getResponse();
     // Use admin theme
-    if($response->getStatusCode() != 200) {
+    if($response->getStatusCode() != 200 || ($this->getDecoratorTemplate() == "admin".$this->getExtension() && !$this->context->getUser()->isAuthenticated())) {
       $this->decoratorTemplate = "clean".$this->getExtension();
     }
     if(preg_match('/^(admin|clean)/i', $this->getDecoratorTemplate(), $matches)) {
@@ -28,7 +28,7 @@ class sfAdminTemplateView extends sfPHPView
       foreach($javascripts as $js) {
         $response->addJavascript($js, preg_match('/(jquery\.min\.js|jquery\-1\.5\.1\.min\.js)/i', $js) ? 'first' : '');
       }
-      if($response->getStatusCode() != 200) {
+      if($this->decoratorTemplate == "clean".$this->getExtension()) {
         $response->addStylesheet('/sfAdminTemplatePlugin/css/login.css', '', array('media' => 'all'));
       }
     }

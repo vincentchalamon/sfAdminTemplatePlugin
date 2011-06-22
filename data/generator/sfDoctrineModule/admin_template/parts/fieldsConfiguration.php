@@ -10,6 +10,12 @@
 <?php unset($this->config['list']['layout']) ?>
   }
 
+  public function getShowTitle()
+  {
+    return '<?php echo $this->escapeString(isset($this->config['show']['title']) ? $this->config['show']['title'] : 'Show '.sfInflector::humanize($this->getModuleName())) ?>';
+<?php unset($this->config['show']['title']) ?>
+  }
+
   public function getListTitle()
   {
     return '<?php echo $this->escapeString(isset($this->config['list']['title']) ? $this->config['list']['title'] : sfInflector::humanize($this->getModuleName()).' List') ?>';
@@ -50,6 +56,12 @@
   {
     return <?php echo $this->asPhp(isset($this->config['new']['display']) ? $this->config['new']['display'] : array()) ?>;
 <?php unset($this->config['new']['display']) ?>
+  }
+
+  public function getShowDisplay()
+  {
+    return <?php echo $this->asPhp(isset($this->config['show']['display']) ? $this->config['show']['display'] : array()) ?>;
+<?php unset($this->config['show']['display']) ?>
   }
 
   public function getListDisplay()

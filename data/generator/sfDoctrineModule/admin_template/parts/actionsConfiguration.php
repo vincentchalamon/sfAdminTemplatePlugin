@@ -16,6 +16,12 @@
 <?php unset($this->config['new']['actions']) ?>
   }
 
+  public function getShowActions()
+  {
+    return <?php echo $this->asPhp(isset($this->config['show']['actions']) ? $this->config['show']['actions'] : array('_edit' => null, '_delete' => null, '_list' => null)) ?>;
+<?php unset($this->config['show']['actions']) ?>
+  }
+
   public function getEditActions()
   {
     return <?php echo $this->asPhp(isset($this->config['edit']['actions']) ? $this->config['edit']['actions'] : array()) ?>;
