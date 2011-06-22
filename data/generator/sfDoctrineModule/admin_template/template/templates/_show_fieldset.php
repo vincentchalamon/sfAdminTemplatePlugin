@@ -3,19 +3,19 @@
     [?php if ('NONE' != $fieldset): ?]
       <legend>[?php echo __($fieldset, array(), '<?php echo $this->getI18nCatalogue() ?>') ?]</legend>
     [?php endif; ?]
-    [?php foreach ($fields->getRawValue() as $name => $options): ?]
-      [?php if ($name == "id") continue ?]
-      [?php if (preg_match('/^_.*/i', $name)): ?]
-        [?php include_partial('<?php echo $this->getModuleName() ?>/'.substr($name, 1), array('<?php echo $this->getSingularName() ?>' => $<?php echo $this->getSingularName() ?>)) ?]
-      [?php elseif (preg_match('/^~.*/i', $name)): ?]
-        [?php include_component('<?php echo $this->getModuleName() ?>', substr($name, 1), array('<?php echo $this->getSingularName() ?>' => $<?php echo $this->getSingularName() ?>)) ?]
+    [?php foreach ($fields->getRawValue() as $name => $field): ?]
+      [?php if ($field->getName() == "id") continue ?]
+      [?php if ($field->isPartial()): ?]
+        [?php include_partial('<?php echo $this->getModuleName() ?>/'.$name, array('<?php echo $this->getSingularName() ?>' => $<?php echo $this->getSingularName() ?>)) ?]
+      [?php elseif ($field->isComponent()): ?]
+        [?php include_component('<?php echo $this->getModuleName() ?>', $name, array('<?php echo $this->getSingularName() ?>' => $<?php echo $this->getSingularName() ?>)) ?]
       [?php else: ?]
         [?php include_partial('<?php echo $this->getModuleName() ?>/show_field', array(
           'name'       => $name,
-          'label'      => $options['label'],
-          'value'      => $options['value'],
+          'label'      => $field->getConfig('label'),
+          'value'      => $configuration->retrieveValue($<?php echo $this->getSingularName() ?>->getRawValue(), $field->getName()),
           '<?php echo $this->getSingularName() ?>'      => $<?php echo $this->getSingularName() ?>,
-          'class'      => 'sf_admin_show_row sf_admin_'.strtolower($options['type']).' sf_admin_show_field_'.$name,
+          'class'      => 'sf_admin_show_row sf_admin_'.strtolower($field->getConfig('type')).' sf_admin_show_field_'.$name,
         )) ?]
       [?php endif ?]
     [?php endforeach; ?]

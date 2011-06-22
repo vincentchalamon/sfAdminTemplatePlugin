@@ -51,7 +51,7 @@ abstract class Base<?php echo ucfirst($this->getModuleName()) ?>GeneratorConfigu
       $fields = array();
 
       // with fieldsets?
-      if (!is_array(reset($fieldsets)))
+      if (!is_array(current($fieldsets)))
       {
         $fieldsets = array('NONE' => $fieldsets);
       }
@@ -64,41 +64,18 @@ abstract class Base<?php echo ucfirst($this->getModuleName()) ?>GeneratorConfigu
         }
 
         $fields[$fieldset] = array();
-
         foreach ($names as $name)
         {
           if (!isset($this->configuration['show']['fields'][$name]))
           {
-            // Partial
-            if (preg_match('/^[_~].*/i', $name))
-            {
-              $this->configuration['show']['fields'][$name] = array();
-            }
-            else
-            {
-              // Default value
-              $value = $<?php echo $this->getSingularName() ?>->{"get".ucfirst(sfInflector::classify($name))}();
-              // Field is relation
-              if (preg_match('/_id$/i', $name) && $this->retrieveRelationName($<?php echo $this->getSingularName() ?>, $name))
-              {
-                $value = $this->retrieveRelationName($<?php echo $this->getSingularName() ?>, $name);
-              }
-              // Convert array to string
-              if (is_array($value) || $value instanceof Doctrine_Collection)
-              {
-                $html = "";
-                foreach ($value as $element)
-                {
-                  $html.= "<li>$element</li>";
-                }
-                $value = "<ul>$html</ul>";
-              }
-              $this->configuration['show']['fields'][$name] = array(
-                'label' => isset($defaults[$name]['label']) ? $defaults[$name]['label'] : sfInflector::humanize($name),
-                'value' => $value,
-                'type' => 'Text'
-              );
-            }
+            $options = $<?php echo $this->getSingularName() ?>->getTable()->getColumnDefinition($name);
+            list($name, $flag) = sfModelGeneratorConfigurationField::splitFieldWithFlag($name);
+            $this->configuration['show']['fields'][$name] = new sfModelGeneratorConfigurationField($name, array_merge(
+              array('type' => $options['type'], 'label' => sfInflector::humanize(sfInflector::underscore($name))),
+              isset($config['default'][$name]) ? $config['default'][$name] : array(),
+              isset($config['show'][$name]) ? $config['show'][$name] : array(),
+              array('flag' => $flag)
+            ));
           }
           $fields[$fieldset][$name] = $this->configuration['show']['fields'][$name];
         }
@@ -114,31 +91,60 @@ abstract class Base<?php echo ucfirst($this->getModuleName()) ?>GeneratorConfigu
     $fields = array();
     foreach ($<?php echo $this->getSingularName() ?>->getTable()->getColumns() as $name => $options)
     {
-      // Default value
-      $value = $<?php echo $this->getSingularName() ?>->{"get".ucfirst(sfInflector::classify($name))}();
-      // Field is relation
-      if (preg_match('/_id$/i', $name) && $this->retrieveRelationName($<?php echo $this->getSingularName() ?>, $name))
-      {
-        $value = $this->retrieveRelationName($<?php echo $this->getSingularName() ?>, $name);
-      }
-      // Convert array to string
-      if (is_array($value) || $value instanceof Doctrine_Collection)
-      {
-        $html = "";
-        foreach ($value as $element)
-        {
-          $html.= "<li>$element</li>";
-        }
-        $value = "<ul>$html</ul>";
-      }
-      $fields[$name] = array(
-        'label' => isset($defaults[$name]['label']) ? $defaults[$name]['label'] : sfInflector::humanize($name),
-        'value' => $value,
-        'type' => $options['type']
-      );
+      list($name, $flag) = sfModelGeneratorConfigurationField::splitFieldWithFlag($name);
+      $this->configuration['show']['fields'][$name] = new sfModelGeneratorConfigurationField($name, array_merge(
+        array('type' => $options['type'], 'label' => sfInflector::humanize(sfInflector::underscore($name))),
+        isset($config['default'][$name]) ? $config['default'][$name] : array(),
+        isset($config['show'][$name]) ? $config['show'][$name] : array(),
+        array('flag' => $flag)
+      ));
+      $fields[$name] = $this->configuration['show']['fields'][$name];
     }
 
     return array('NONE' => $fields);
+  }
+
+  public function retrieveValue(<?php echo $this->getModelClass() ?> $<?php echo $this->getSingularName() ?>, $name)
+  {
+    $options = $<?php echo $this->getSingularName() ?>->getTable()->getColumnDefinition($name);
+    // Default value
+    $value = $<?php echo $this->getSingularName() ?>->{"get".ucfirst(sfInflector::classify($name))}();
+    // Field is relation
+    if (preg_match('/_id$/i', $name) && $this->retrieveRelationName($<?php echo $this->getSingularName() ?>, $name))
+    {
+      $value = $this->retrieveRelationName($<?php echo $this->getSingularName() ?>, $name);
+    }
+    // Field is date
+    if ($value && $options['type'] == 'date')
+    {
+      $value = format_date(strtotime($value), "EEEE dd MMMM yyyy");
+    }
+    // Field is time
+    if ($value && $options['type'] == 'time')
+    {
+      $value = date('H\hi', strtotime($value));
+    }
+    // Field is timestamp
+    if ($value && $options['type'] == 'timestamp')
+    {
+      $value = format_date(strtotime($value), "EEEE dd MMMM yyyy")." ".date('H\hi', strtotime($value));
+    }
+    // Field is boolean
+    if ($options['type'] == 'boolean')
+    {
+      $value = $value ? "<img src='/sfAdminTemplatePlugin/images/icon_ticklist.png' />" : "<img src='/sfAdminTemplatePlugin/images/icon_cross_sml.png' />";
+    }
+    // Convert array to string
+    if (is_array($value) || $value instanceof Doctrine_Collection)
+    {
+      $html = "";
+      foreach ($value as $element)
+      {
+        $html.= "<li>$element</li>";
+      }
+      $value = "<ul>$html</ul>";
+    }
+    return $value;
   }
 
   protected function retrieveRelationName(<?php echo $this->getModelClass() ?> $<?php echo $this->getSingularName() ?>, $name)

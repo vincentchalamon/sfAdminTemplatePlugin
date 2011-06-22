@@ -1,12 +1,12 @@
 <script type="text/javascript">
   $(document).ready(function(){
-    $(".contentbox .section").each(function(){
+    $(".contentbox fieldset").each(function(){
       $('.jqTransformInputWrapper', $(this)).width('100%');
       if(!$(".sf_admin_show_row", $(this)).length) {
         $('a[href=#' + $(this).attr('id') + ']').parent().remove();
       }
     });
-    $(".contentbox .section").each(function(){
+    $(".contentbox fieldset").each(function(){
       if(!$(".sf_admin_show_row", $(this)).length) {
         $(this).remove();
       }
