@@ -48,6 +48,13 @@ $(document).ready(function(){
         $(this).val($(this).attr('title'));
       }
     });
+    $('form').live('submit', function(){
+      $('input:text, textarea', $(this)).each(function(){
+        if($(this).val() == $(this).attr('title')) {
+          $(this).val('');
+        }
+      });
+    });
   }
   else {
     $('body').addClass('chrome');
