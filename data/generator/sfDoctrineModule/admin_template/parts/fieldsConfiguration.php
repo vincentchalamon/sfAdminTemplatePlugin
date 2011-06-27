@@ -85,7 +85,7 @@
     );
   }
 
-<?php foreach (array('list', 'filter', 'form', 'edit', 'new') as $context): ?>
+<?php foreach (array('list', 'filter', 'form', 'edit', 'new', 'show') as $context): ?>
   public function getFields<?php echo ucfirst($context) ?>()
   {
     return array(

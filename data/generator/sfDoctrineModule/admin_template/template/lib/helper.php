@@ -17,6 +17,10 @@ abstract class Base<?php echo ucfirst($this->getModuleName()) ?>GeneratorHelper 
 
   public function linkToShow($object, $params)
   {
+    if ($object->isNew())
+    {
+      return '';
+    }
     return '<li class="sf_admin_action_show">'.link_to(__($params['label'], array(), 'sf_admin'), $this->getUrlForAction('show'), $object).'</li>';
   }
 

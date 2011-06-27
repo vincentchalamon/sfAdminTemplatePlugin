@@ -13,10 +13,7 @@
       <?php echo $this->addCredentialCondition('[?php echo $helper->linkToShow($'.$this->getSingularName().', '.$this->asPhp($params).') ?]', $params) ?>
 
   <?php else: ?>
-      <li class="sf_admin_action_<?php echo $params['class_suffix'] ?>">
-        <?php echo $this->addCredentialCondition($this->getLinkToAction($name, $params, true), $params) ?>
-
-      </li>
+        <?php echo $this->addCredentialCondition('<li class="sf_admin_action_'.$params['class_suffix'].'">'.$this->getLinkToAction($name, $params, true).'</li>', $params) ?>
   <?php endif; ?>
   <?php endforeach; ?>
     </ul>

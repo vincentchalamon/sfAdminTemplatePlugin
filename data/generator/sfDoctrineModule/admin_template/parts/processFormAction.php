@@ -1,6 +1,6 @@
   protected function getRedirect(<?php echo $this->getModelClass() ?> $<?php echo $this->getSingularName() ?>)
   {
-    return;
+    return '@<?php echo $this->getUrlForAction('show') ?>?id='.$<?php echo $this->getSingularName() ?>->getPrimaryKey();
   }
 
   protected function processForm(sfWebRequest $request, sfForm $form)

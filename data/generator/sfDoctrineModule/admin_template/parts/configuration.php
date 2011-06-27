@@ -24,6 +24,14 @@ abstract class Base<?php echo ucfirst($this->getModuleName()) ?>GeneratorConfigu
       'actions' => $this->getShowActions(),
       'title' => $this->getShowTitle()
     );
+    foreach (array_keys($config['default']) as $name)
+    {
+      $this->configuration['show']['fields'][$name] = new sfModelGeneratorConfigurationField($name, array_merge(
+              array('label' => sfInflector::humanize(sfInflector::underscore($name))),
+              $config['default'][$name],
+              isset($config['show'][$name]) ? $config['show'][$name] : array()
+            ));
+    }
     $this->parseVariables('show', 'title');
     foreach ($this->configuration['show']['actions'] as $action => $parameters)
     {
@@ -32,6 +40,19 @@ abstract class Base<?php echo ucfirst($this->getModuleName()) ?>GeneratorConfigu
     $actions = $this->getActionsDefault();
     $this->configuration['credentials']['show'] = isset($actions['_show']['credentials']) ? $actions['_show']['credentials'] : array();
     $this->configuration['credentials']['batchShow'] = isset($actions['_show']['credentials']) ? $actions['_show']['credentials'] : array();
+  }
+
+  protected function getConfig()
+  {
+    return array(
+      'default' => $this->getFieldsDefault(),
+      'show'    => $this->getFieldsShow(),
+      'list'    => $this->getFieldsList(),
+      'filter'  => $this->getFieldsFilter(),
+      'form'    => $this->getFieldsForm(),
+      'new'     => $this->getFieldsNew(),
+      'edit'    => $this->getFieldsEdit(),
+    );
   }
 
   /**

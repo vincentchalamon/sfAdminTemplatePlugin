@@ -1,5 +1,4 @@
-html, body {height: 100%;}
-body {height: 100%; font-family: Arial, Helvetica, sans-serif; font-size: 12px; margin: 0; padding: 0; background:#eaeaea url('../images/bg_stripe.png'); color: #666;}
+body {font-family: Arial, Helvetica, sans-serif; font-size: 12px; margin: 0; padding: 0; background:#eaeaea url('../images/bg_stripe.png'); color: #666;}
 p {padding: 0; margin: 0; clear: both;}
 ul, li {list-style: none; padding: 0; margin: 0;}
 img {border: none;}
@@ -285,3 +284,17 @@ a.enhanced_toggleResult {display: none;}
 .sf_admin_list_actions li {float: left; margin: 5px; line-height: 16px; background: url("../images/icon_default.png") no-repeat left top;}
 .sf_admin_list_actions li a {padding-left: 20px; text-decoration: none;}
 .sf_admin_list_actions li.sf_admin_action_add {background-image: url("../images/icon_add.png");}
+
+/* view mode */
+.fiche_infos{ border-left: 1px solid #CACACA; border-right: 1px solid #CACACA;padding:10px 15px;}
+.sf_admin_show_row {line-height:1.4em;}
+.sf_admin_show_row strong{display:inline-block !important;width:100px ;text-align:right;vertical-align:top;}
+.sf_admin_show_row span{display:inline-block;width:500px;vertical-align:top;}
+.sf_admin_show_field_elements{width:615px;float:left;}
+.sf_admin_show_field_elements label{display:inline-block !important;width:100px ;text-align:right;vertical-align:top;float:left;cursor:default !important;}
+.elements_list {float:left;width:490px;}
+.elements_list .element{float:left;width:490px;margin:0 0 6px 0;}
+.elements_list span{width:auto;}
+.elements_list .changed strong, .elements_list .installed strong, .elements_list .changed span, .elements_list .installed span{display:block;}
+.elements_list .changed, .elements_list .installed{width:50%;float:left;}
+.sf_admin_form_field_elements_list .widget_template, .sf_admin_form_field_elements_list .widget_template input, .sf_admin_form_field_elements_list .widget_template select{width:135px;padding:0;}
