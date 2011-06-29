@@ -28,10 +28,10 @@ $(document).ready(function(){
   });
 
   // Login form
-  $('#innerlogin form').live('submit', function(){
-    $('input:submit', $(this)).hide()
+  $('form').live('submit', function(){
+    $('input:submit', $(this)).hide();
     $('.loading', $(this)).show();
-  });
+  }).validationEngine();
 
   // Form placeholder
   if(!navigator.userAgent.match('Chrome')) {

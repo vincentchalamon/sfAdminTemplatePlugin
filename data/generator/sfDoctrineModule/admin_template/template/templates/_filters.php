@@ -24,5 +24,6 @@
     [?php endforeach; ?]
     [?php echo link_to(__('Reset', array(), 'sf_admin'), '<?php echo $this->getUrlForAction('collection') ?>', array('action' => 'filter'), array('query_string' => '_reset', 'method' => 'post')) ?]
     <input type="submit" value="[?php echo __('Filter', array(), 'sf_admin') ?]" class="btn" />
+    <img src="/sfAdminTemplatePlugin/images/ajax-loader.gif" alt="Chargement..." class="loading" style="display: none;" />
   </form>
 </div>

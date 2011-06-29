@@ -298,3 +298,4 @@ a.enhanced_toggleResult {display: none;}
 .elements_list .changed strong, .elements_list .installed strong, .elements_list .changed span, .elements_list .installed span{display:block;}
 .elements_list .changed, .elements_list .installed{width:50%;float:left;}
 .sf_admin_form_field_elements_list .widget_template, .sf_admin_form_field_elements_list .widget_template input, .sf_admin_form_field_elements_list .widget_template select{width:135px;padding:0;}
+.loading {margin: 0 21px; max-height: 100% !important; max-width: 100% !important;}

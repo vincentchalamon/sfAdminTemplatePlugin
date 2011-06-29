@@ -9,4 +9,5 @@
   <input type="hidden" name="[?php echo $form->getCSRFFieldName() ?]" value="[?php echo $form->getCSRFToken() ?]" />
 [?php endif; ?]
 <input type="submit" value="[?php echo __('go', array(), 'sf_admin') ?]" class="btn" />
+<img src="/sfAdminTemplatePlugin/images/ajax-loader.gif" alt="Chargement..." class="loading" style="display: none;" />
 <?php endif; ?>

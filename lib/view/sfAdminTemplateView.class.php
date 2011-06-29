@@ -16,7 +16,7 @@ class sfAdminTemplateView extends sfPHPView
       }
       $this->decorator = true;
       // Stylesheets
-      $stylesheets = array('/sfAdminTemplatePlugin/css/layout.css', '/sfAdminTemplatePlugin/css/styles.css', '/sfAdminTemplatePlugin/js/jqtransformplugin/jqtransform.css', '/sfAdminTemplatePlugin/css/jquery.fancybox-1.3.4.css');
+      $stylesheets = array('/sfAdminTemplatePlugin/css/layout.css', '/sfAdminTemplatePlugin/css/styles.css', '/sfAdminTemplatePlugin/js/jqtransformplugin/jqtransform.css', '/sfAdminTemplatePlugin/css/jquery.fancybox-1.3.4.css', '/sfAdminTemplatePlugin/js/validationEngine/validationEngine.jquery.css');
       foreach($stylesheets as $css) {
         $response->addStylesheet($css, 'first', array('media' => 'all'));
       }
@@ -25,6 +25,8 @@ class sfAdminTemplateView extends sfPHPView
       $javascripts[] = '/sfAdminTemplatePlugin/js/jqtransformplugin/jquery.jqtransform.js';
       $javascripts[] = '/sfAdminTemplatePlugin/js/jquery.fancybox-1.3.4.pack.js';
       $javascripts[] = '/sfAdminTemplatePlugin/js/admin.js';
+      $javascripts[] = '/sfAdminTemplatePlugin/js/validationEngine/jquery.validationEngine-fr.js';
+      $javascripts[] = '/sfAdminTemplatePlugin/js/validationEngine/jquery.validationEngine.js';
       foreach($javascripts as $js) {
         $response->addJavascript($js, preg_match('/(jquery\.min\.js|jquery\-1\.5\.1\.min\.js)/i', $js) ? 'first' : '');
       }

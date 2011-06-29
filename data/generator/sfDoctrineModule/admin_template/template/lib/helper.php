@@ -51,7 +51,7 @@ abstract class Base<?php echo ucfirst($this->getModuleName()) ?>GeneratorHelper 
 
   public function linkToSave($object, $params)
   {
-    return '<li><input type="submit" value="'.__($params['label'], array(), 'sf_admin').'" class="btn" /></li>';
+    return '<li><input type="submit" value="'.__($params['label'], array(), 'sf_admin').'" class="btn" /><img src="/sfAdminTemplatePlugin/images/ajax-loader.gif" alt="Chargement..." class="loading" style="display: none;" /></li>';
   }
 
   public function linkToSaveAndAdd($object, $params)
@@ -61,6 +61,6 @@ abstract class Base<?php echo ucfirst($this->getModuleName()) ?>GeneratorHelper 
       return '';
     }
 
-    return '<li><input type="submit" value="'.__($params['label'], array(), 'sf_admin').'" name="_save_and_add" class="btnalt" /></li>';
+    return '<li><input type="submit" value="'.__($params['label'], array(), 'sf_admin').'" name="_save_and_add" class="btnalt" /><img src="/sfAdminTemplatePlugin/images/ajax-loader.gif" alt="Chargement..." class="loading" style="display: none;" /></li>';
   }
 }
