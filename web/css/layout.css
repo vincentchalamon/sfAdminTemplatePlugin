@@ -299,3 +299,5 @@ a.enhanced_toggleResult {display: none;}
 .elements_list .changed, .elements_list .installed{width:50%;float:left;}
 .sf_admin_form_field_elements_list .widget_template, .sf_admin_form_field_elements_list .widget_template input, .sf_admin_form_field_elements_list .widget_template select{width:135px;padding:0;}
 .loading {margin: 0 21px; max-height: 100% !important; max-width: 100% !important;}
+.sf_widget_timestamp input, .sf_widget_timestamp .jqTransformInputWrapper{float: left; width: 25% !important; margin-right: 10px;}
+.sf_widget_timestamp .jqTransformInputWrapper input{float: none; width: 100% !important;}

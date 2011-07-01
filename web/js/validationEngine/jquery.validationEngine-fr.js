@@ -75,6 +75,10 @@
                     "regex": /^(0[1-9]|[12][0-9]|3[01])([\-\/]{1})(0[1-9]|1[012])([\-\/]{1})(19[0-9]{2}|20[0-9]{2})$/,
                     "alertText": "* Date invalide, format DD/MM/YYYY requis"
                 },
+                "timestamp": {
+                    "regex": /^(0[1-9]|[12][0-9]|3[01])([\-\/]{1})(0[1-9]|1[012])([\-\/]{1})(19[0-9]{2}|20[0-9]{2}) ([0-1]\d|2[0-3])h([0-5]\d)$/,
+                    "alertText": "* Temps invalide, format DD/MM/YYYY HHhII requis"
+                },
                 "date": {
                     // Date in ISO format. Credit: bassistance
                     "regex": /^\d{4}[\/\-]\d{1,2}[\/\-]\d{1,2}$/,

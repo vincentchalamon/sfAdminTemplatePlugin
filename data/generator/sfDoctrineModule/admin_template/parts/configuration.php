@@ -44,15 +44,7 @@ abstract class Base<?php echo ucfirst($this->getModuleName()) ?>GeneratorConfigu
 
   protected function getConfig()
   {
-    return array(
-      'default' => $this->getFieldsDefault(),
-      'show'    => $this->getFieldsShow(),
-      'list'    => $this->getFieldsList(),
-      'filter'  => $this->getFieldsFilter(),
-      'form'    => $this->getFieldsForm(),
-      'new'     => $this->getFieldsNew(),
-      'edit'    => $this->getFieldsEdit(),
-    );
+    return array_merge(parent::getConfig(), array('show' => $this->getFieldsShow()));
   }
 
   /**
@@ -131,10 +123,10 @@ abstract class Base<?php echo ucfirst($this->getModuleName()) ?>GeneratorConfigu
     // Default value
     $value = $<?php echo $this->getSingularName() ?>->{"get".ucfirst(sfInflector::classify($name))}();
     // Field is relation
-    if (preg_match('/_id$/i', $name) && $this->retrieveRelationName($<?php echo $this->getSingularName() ?>, $name))
+    /*if (preg_match('/_id$/i', $name) && $this->retrieveRelationName($<?php echo $this->getSingularName() ?>, $name))
     {
       $value = $this->retrieveRelationName($<?php echo $this->getSingularName() ?>, $name);
-    }
+    }*/
     // Field is date
     if ($value && $options['type'] == 'date')
     {
@@ -164,6 +156,11 @@ abstract class Base<?php echo ucfirst($this->getModuleName()) ?>GeneratorConfigu
         $html.= "<li>$element</li>";
       }
       $value = "<ul>$html</ul>";
+    }
+    // Test if relation exists
+    if ($<?php echo $this->getSingularName() ?>->getTable()->hasRelation($name))
+    {
+      $value = $<?php echo $this->getSingularName() ?>[$name] && !$<?php echo $this->getSingularName() ?>[$name]->isNew() ? $<?php echo $this->getSingularName() ?>[$name] : false;
     }
     return $value;
   }
