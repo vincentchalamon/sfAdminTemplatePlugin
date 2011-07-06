@@ -30,7 +30,7 @@ $(document).ready(function(){
   // Login form
   $('form').live('submit', function(){
     $('input:submit', $(this)).hide();
-    $('.loading', $(this)).show();
+    $('.loading:first', $(this)).show();
   }).validationEngine();
 
   // Form placeholder
