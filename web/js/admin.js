@@ -16,15 +16,19 @@ $(document).ready(function(){
   }
   $('#main_menu_previous').live('click', function(event){
     event.preventDefault();
-    $('#main_menu ul').animate({left: 0}, "slow");
-    $('#main_menu_previous').fadeOut();
-    $('#main_menu_next').fadeIn();
+    if(parseInt($('#main_menu ul').css('left')) + $('#main_menu div:first').outerWidth(true) >= 0) {
+      $('#main_menu_previous').hide();
+    }
+    $('#main_menu ul').animate({left: "+=" + $('#main_menu div:first').outerWidth(true)}, "slow");
+    $('#main_menu_next').show();
   });
   $('#main_menu_next').live('click', function(event){
     event.preventDefault();
-    $('#main_menu ul').animate({left: "-=" + (getMenuWidth() - $('#main_menu').outerWidth(true))}, "slow");
-    $('#main_menu_previous').fadeIn();
-    $('#main_menu_next').fadeOut();
+    if(-parseInt($('#main_menu ul').css('left'))+($('#main_menu div:first').outerWidth(true)*2) >= getMenuWidth()) {
+      $('#main_menu_next').hide();
+    }
+    $('#main_menu ul').animate({left: "-=" + $('#main_menu div:first').outerWidth(true)}, "slow");
+    $('#main_menu_previous').show();
   });
 
   // Login form
