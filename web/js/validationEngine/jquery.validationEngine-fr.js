@@ -93,7 +93,7 @@
                     "alertText": "* URL invalide"
                 },
                 "url_custom": {
-                    "regex": /^\/([A-z\d\_\-\/\#]+)?$/,
+                    "regex": /^(http|https|ftp|ftps):\/\/(([a-z0-9-]+\.)+[a-z]{2,6}|\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3})(:[0-9]+)?(\/?|\/\S+)$/i,
                     "alertText": "* URL invalide"
                 },
                 "url_symfony": {
