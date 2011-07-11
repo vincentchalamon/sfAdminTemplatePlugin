@@ -100,6 +100,10 @@
                     "regex": /^(\/([A-z\d\_\-\/#]+)?|(@[A-z\_\-\d]+)|([A-z\_\-\d]+\/[A-z\_\-\d]+))$/,
                     "alertText": "* URL invalide"
                 },
+                "facebook": {
+                    "regex": /^http:\/\/www\.facebook\.(fr|com)\/?.*$/,
+                    "alertText": "* URL invalide"
+                },
                 "onlyNumberSp": {
                     "regex": /^[0-9\ ]+$/,
                     "alertText": "* Seules les chiffres sont acceptées"
