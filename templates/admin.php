@@ -19,12 +19,14 @@
     <div id="wrapper">
       <div id="header">
         <?php echo link_to(image_tag(public_path('/sfAdminTemplatePlugin/images/cp_logo.png'), array('title' => 'Control Panel', 'title' => 'Control Panel', 'class' => 'logo')), "@homepage", array('title' => 'Control Panel')) ?>
-        <div class="user">
-          <?php echo link_to(image_tag(public_path('/sfAdminTemplatePlugin/images/avatar.png'), array('class' => 'hoverimg', 'height' => 44, 'width' => 44, 'alt' => 'Avatar', 'title' => 'Avatar')), "@sf_guard_user_edit?id=".$sf_user->getGuardUser()->getPrimaryKey()) ?>
-          <p class="username"><?php echo link_to($sf_user->getGuardUser()->getUsername(), "@sf_guard_user_edit?id=".$sf_user->getGuardUser()->getPrimaryKey()) ?></p>
-          <p class="userbtn"><?php echo link_to("Déconnexion", "@sf_guard_signout", array('title' => 'Déconnexion')) ?></p>
-          <p class="userbtn"><?php echo link_to("Mon compte", "@sf_guard_user_edit?id=".$sf_user->getGuardUser()->getPrimaryKey(), array('title' => 'Mon compte')) ?></p>
-        </div>
+        <?php if($sf_user->isAuthenticated()): ?>
+          <div class="user">
+            <?php echo link_to(image_tag(public_path('/sfAdminTemplatePlugin/images/avatar.png'), array('class' => 'hoverimg', 'height' => 44, 'width' => 44, 'alt' => 'Avatar', 'title' => 'Avatar')), "@sf_guard_user_edit?id=".$sf_user->getGuardUser()->getPrimaryKey()) ?>
+            <p class="username"><?php echo link_to($sf_user->getGuardUser()->getUsername(), "@sf_guard_user_edit?id=".$sf_user->getGuardUser()->getPrimaryKey()) ?></p>
+            <p class="userbtn"><?php echo link_to("Déconnexion", "@sf_guard_signout", array('title' => 'Déconnexion')) ?></p>
+            <p class="userbtn"><?php echo link_to("Mon compte", "@sf_guard_user_edit?id=".$sf_user->getGuardUser()->getPrimaryKey(), array('title' => 'Mon compte')) ?></p>
+          </div>
+        <?php endif ?>
         <?php if(is_file(sfConfig::get('sf_app_template_dir').'/_header.php')): ?>
           <?php include_partial("global/header") ?>
         <?php endif ?>

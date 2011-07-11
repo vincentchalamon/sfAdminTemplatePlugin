@@ -7,7 +7,7 @@ class sfAdminTemplateView extends sfPHPView
     // Use admin theme
     if(preg_match('/^(admin|clean)/i', $this->getDecoratorTemplate(), $matches)) {
       $response = $this->context->getResponse();
-      if($response->getStatusCode() != 200 || ($this->getDecoratorTemplate() == "admin".$this->getExtension() && !$this->context->getUser()->isAuthenticated())) {
+      if($response->getStatusCode() != 200) {
         $this->decoratorTemplate = "clean".$this->getExtension();
       }
       $this->decoratorDirectory = sfConfig::get('sf_app_template_dir');
