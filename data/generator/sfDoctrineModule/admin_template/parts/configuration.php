@@ -54,7 +54,7 @@ abstract class Base<?php echo ucfirst($this->getModuleName()) ?>GeneratorConfigu
    * all the fields from the object are returned (dynamically).
    *
    */
-  public function getShowFields(<?php echo $this->getModelClass() ?> $<?php echo $this->getSingularName() ?>)
+  public function getShowFields(<?php echo $this->getModelClass() ?> $object)
   {
     $config = $this->getConfig();
     $defaults = $this->getFieldsDefault();
@@ -81,7 +81,7 @@ abstract class Base<?php echo ucfirst($this->getModuleName()) ?>GeneratorConfigu
         {
           if (!isset($this->configuration['show']['fields'][$name]))
           {
-            $options = $<?php echo $this->getSingularName() ?>->getTable()->getColumnDefinition($name);
+            $options = $object->getTable()->getColumnDefinition($name);
             list($name, $flag) = sfModelGeneratorConfigurationField::splitFieldWithFlag($name);
             $this->configuration['show']['fields'][$name] = new sfModelGeneratorConfigurationField($name, array_merge(
               array('type' => $options['type'], 'label' => sfInflector::humanize(sfInflector::underscore($name))),
@@ -102,7 +102,7 @@ abstract class Base<?php echo ucfirst($this->getModuleName()) ?>GeneratorConfigu
     }
 
     $fields = array();
-    foreach ($<?php echo $this->getSingularName() ?>->getTable()->getColumns() as $name => $options)
+    foreach ($object->getTable()->getColumns() as $name => $options)
     {
       list($name, $flag) = sfModelGeneratorConfigurationField::splitFieldWithFlag($name);
       $this->configuration['show']['fields'][$name] = new sfModelGeneratorConfigurationField($name, array_merge(
@@ -117,15 +117,15 @@ abstract class Base<?php echo ucfirst($this->getModuleName()) ?>GeneratorConfigu
     return array('NONE' => $fields);
   }
 
-  public function retrieveValue(<?php echo $this->getModelClass() ?> $<?php echo $this->getSingularName() ?>, $name)
+  public function retrieveValue(<?php echo $this->getModelClass() ?> $object, $name)
   {
-    $options = $<?php echo $this->getSingularName() ?>->getTable()->getColumnDefinition($name);
+    $options = $object->getTable()->getColumnDefinition($name);
     // Default value
-    $value = $<?php echo $this->getSingularName() ?>->{"get".ucfirst(sfInflector::classify($name))}();
+    $value = $object->{"get".ucfirst(sfInflector::classify($name))}();
     // Field is relation
-    /*if (preg_match('/_id$/i', $name) && $this->retrieveRelationName($<?php echo $this->getSingularName() ?>, $name))
+    /*if (preg_match('/_id$/i', $name) && $this->retrieveRelationName($object, $name))
     {
-      $value = $this->retrieveRelationName($<?php echo $this->getSingularName() ?>, $name);
+      $value = $this->retrieveRelationName($object, $name);
     }*/
     // Field is date
     if ($value && $options['type'] == 'date')
@@ -158,16 +158,16 @@ abstract class Base<?php echo ucfirst($this->getModuleName()) ?>GeneratorConfigu
       $value = "<ul>$html</ul>";
     }
     // Test if relation exists
-    if ($<?php echo $this->getSingularName() ?>->getTable()->hasRelation($name))
+    if ($object->getTable()->hasRelation($name))
     {
-      $value = $<?php echo $this->getSingularName() ?>[$name] && !$<?php echo $this->getSingularName() ?>[$name]->isNew() ? $<?php echo $this->getSingularName() ?>[$name] : false;
+      $value = $object[$name] && !$object[$name]->isNew() ? $object[$name] : false;
     }
     return $value;
   }
 
-  protected function retrieveRelationName(<?php echo $this->getModelClass() ?> $<?php echo $this->getSingularName() ?>, $name)
+  protected function retrieveRelationName(<?php echo $this->getModelClass() ?> $object, $name)
   {
-    foreach ($<?php echo $this->getSingularName() ?>->getTable()->getRelations() as $relation)
+    foreach ($object->getTable()->getRelations() as $relation)
     {
       if ($relation['local'] == $name)
       {

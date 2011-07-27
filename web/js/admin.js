@@ -38,29 +38,7 @@ $(document).ready(function(){
   }).validationEngine();
 
   // Form placeholder
-  if(!navigator.userAgent.match('Chrome')) {
-    $('input:text, textarea').focus(function(){
-      if($(this).val() == $(this).attr('title')) {
-        $(this).val('');
-      }
-    }).blur(function(){
-      if(!$(this).val()) {
-        $(this).val($(this).attr('title'));
-      }
-    }).each(function(){
-      if(!$(this).val()) {
-        $(this).val($(this).attr('title'));
-      }
-    });
-    $('form').live('submit', function(){
-      $('input:text, textarea', $(this)).each(function(){
-        if($(this).val() == $(this).attr('title')) {
-          $(this).val('');
-        }
-      });
-    });
-  }
-  else {
+  if(navigator.userAgent.match('Chrome')) {
     $('body').addClass('chrome');
   }
 

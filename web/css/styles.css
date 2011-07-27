@@ -13,10 +13,6 @@ ul#nav li a.expanded:hover {background: url(../images/bg_navigation.png) no-repe
 
 ul.navigation li.selected {background: url(../images/bg_navigation_selected.png) no-repeat -1px 0; border: none;}
 
-/* Side Notifications */
-
-.notifycount {background: url(../images/bg_notify_count.png) no-repeat top;}
-
 /* Pagination */
 
 ul.pagination li.page a {background: #00789F url(../images/bg_buttons.png) repeat-x top; border: 1px solid #0D87AE;}
