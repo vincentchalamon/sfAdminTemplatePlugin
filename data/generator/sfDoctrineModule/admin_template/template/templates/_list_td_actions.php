@@ -16,7 +16,7 @@
       [?php if (method_exists($helper, 'linkTo<?php echo $method = ucfirst(sfInflector::classify(preg_replace('/^_(.*)/i', '$1', $name))) ?>')): ?]
         <?php echo $this->addCredentialCondition('[?php echo $helper->linkTo'.$method.'($'.$this->getSingularName().', '.$this->asPhp($params).') ?]', $params) ?>
       [?php else: ?]
-        <?php echo $this->addCredentialCondition($this->getLinkToAction($name, $params, true), $params) ?>
+        <?php echo $this->addCredentialCondition('<li class="sf_admin_action'.$name.'">'.$this->getLinkToAction($name, $params, true).'</li>', $params) ?>
       [?php endif; ?]
   <?php endif; ?>
   <?php endforeach; ?>
