@@ -19,7 +19,7 @@
   <?php echo $this->addCredentialCondition('[?php echo $helper->linkToShow($form->getObject(), '.$this->asPhp($params).') ?]', $params) ?>
 
 <?php elseif ('_save_and_add' == $name): ?>
-  <?php echo $this->addCredentialCondition('[?php echo $helper->linkToSaveAndAdd($form->getObject(), '.$this->asPhp($params).') ?]', $params) ?>
+  <?php echo $this->addCredentialCondition('[?php echo !$sf_request->isXmlHttpRequest() ? $helper->linkToSaveAndAdd($form->getObject(), '.$this->asPhp($params).') : null ?]', $params) ?>
 
 <?php else: ?>
   <li class="sf_admin_action_<?php echo $params['class_suffix'] ?>">

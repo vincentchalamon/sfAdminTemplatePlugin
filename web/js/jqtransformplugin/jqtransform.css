@@ -235,9 +235,10 @@ span.jqTransformCheckboxWrapper{
 	float:left;
     margin:13px 5px 0 0;
 }
-.sf_admin_boolean label{
+.sf_admin_boolean>label{
   float: left;
-  margin-left: 22px;
+  min-width: 100px;
+  line-height: 30px;
 }
 .sf_admin_boolean span.jqTransformCheckboxWrapper{
   margin-top: 0;
