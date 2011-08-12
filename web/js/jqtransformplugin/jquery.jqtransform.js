@@ -137,7 +137,7 @@
 
 			//set the click on the label
 			var oLabel=jqTransformGetLabel($input);
-			oLabel && oLabel.click(function(){aLink.trigger('click');});
+			oLabel && oLabel.click(function(event){event.preventDefault();aLink.trigger('click');});
 			
 			var aLink = $('<a href="#" class="jqTransformCheckbox"></a>');
 			//wrap and add the link
@@ -152,7 +152,7 @@
 				//do nothing if the original input is disabled
 				if($input.attr('disabled')){return false;}
 				//trigger the envents on the input object
-				$input.trigger('click').trigger("change");	
+				$input.trigger('click').trigger("change");
 				return false;
 			});
 
