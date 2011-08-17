@@ -60,9 +60,3 @@ ul.pagination li.page a:hover {background: #00789F url(../images/bg_buttons.png)
   width: 250px;
   height: 100px;
 }
-
-.sf_admin_enum {padding-bottom: 0 !important;}
-.radio_list {margin-bottom: 25px;}
-.radio_list li {float: left;}
-.radio_list li .jqTransformRadioWrapper {float: left;}
-.radio_list li label {display: inline; line-height: 28px;}

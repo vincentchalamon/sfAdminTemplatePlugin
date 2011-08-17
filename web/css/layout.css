@@ -8,7 +8,7 @@ h1, h2, h3, h4, h5 {padding: 0; margin: 0;}
 .clear {clear: both;}
 .red {color: #C61B1B;}
 .green {color: #98B22B; }
-.smltxt {display: block; font-size: 0.9em; font-style: italic; margin-top: 5px;}
+.smltxt {display: block; font-size: 0.9em; font-style: italic;}
 .hoverimg {background: #ccc; padding: 3px; float: left;}
 .hoverimg:hover {cursor: pointer; background: #e4e4e4;}
 
@@ -270,6 +270,17 @@ a.enhanced_toggleResult {display: none;}
 .sf_admin_object_actions_list li {opacity: 0.5; filter : alpha(opacity=50); -moz-opacity : 0.5; -ms-filter: "alpha(opacity=50)";}
 .sf_admin_object_actions_list li:hover {opacity: 1; filter : alpha(opacity=100); -moz-opacity : 1; -ms-filter: "alpha(opacity=100)";}
 .sf_admin_actions li img, .sf_admin_td_actions li img {max-height: 18px; max-width: 18px; margin-top: 2px;}
+.sf_admin_boolean label {margin-left: 25px; line-height: 18px !important;}
+.sf_admin_enum li {float: left; width: auto;}
+.sf_admin_enum li .jqTransformRadioWrapper {float: left;}
+.sf_admin_enum li label {float: left; width: auto; line-height: 30px;}
+.radio_list {margin-bottom: 25px; clear: both;}
+.radio_list li {float: left;}
+.radio_list li .jqTransformRadioWrapper {float: left;}
+.radio_list li label {display: inline !important; line-height: 28px;}
+.checkbox_list li {float: left; width: auto;}
+.checkbox_list li label {float: left; margin-left: 5px; width: auto; line-height: 28px;}
+.checkbox_list li .jqTransformRadioWrapper {float: left;}
 /** END CUSTOM ADMIN **/
 .contentbox th, .contentbox td {padding: 8px 10px;}
 

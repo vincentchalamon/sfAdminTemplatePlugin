@@ -60,6 +60,7 @@ $(document).ready(function(){
   $(".sf_admin_form input:visible:radio:not(.noTransform)").jqTransRadio();
   $(".sf_admin_form input:visible:checkbox:not(.noTransform)").jqTransCheckBox();
   $('input:visible:text:not(.noTransform), input:visible:password:not(.noTransform)').jqTransInputText();
-  $('textarea:visible:not(.ckeditorDone, .noTransform)').jqTransTextarea();
+  $('textarea:visible:not(.ckeditorDone, .noTransform)').autoResize();
+  $('textarea:visible:not(.ckeditorDone, .noTransform, [id$=_autoresize])').jqTransTextarea();
   $('input:visible:submit:not(.btn, .btnalt, .noTransform), input:visible:reset:not(.btn, .btnalt, .noTransform), input:visible:button:not(.btn, .btnalt, .noTransform)').jqTransInputButton();
 });

@@ -9,14 +9,14 @@
   [?php endif ?]
   <div class="[?php echo $class ?][?php $form[$name]->hasError() and print ' errors' ?]">
     [?php echo $form[$name]->renderLabel($label, $form[$name]->hasError() ? array('class' => 'red') : array()) ?]
-    [?php echo $form[$name]->render($attributes) ?]
     [?php if ($help): ?]
-      <span class="smltxt">[?php echo __($help, array(), '<?php echo $this->getI18nCatalogue() ?>') ?]</span>
+      <span class="smltxt">[?php echo __(preg_replace('/^\<br \/\>/i', '', $help), array(), '<?php echo $this->getI18nCatalogue() ?>') ?]</span>
     [?php elseif ($help = $form[$name]->renderHelp()): ?]
-      <span class="smltxt">[?php echo $help ?]</span>
+      <span class="smltxt">[?php echo preg_replace('/^\<br \/\>/i', '', $help) ?]</span>
     [?php endif; ?]
     [?php if($form[$name]->hasError()): ?]
       <span class="smltxt red">[?php echo $form[$name]->renderError() ?]</span>
     [?php endif ?]
+    [?php echo $form[$name]->render($attributes) ?]
   </div>
 [?php endif; ?]

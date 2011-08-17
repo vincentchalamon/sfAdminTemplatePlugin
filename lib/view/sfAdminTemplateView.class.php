@@ -22,6 +22,7 @@ class sfAdminTemplateView extends sfPHPView
       }
       // Javascripts
       $javascripts = is_dir(sfConfig::get('sf_plugins_dir').'/sfEPFactoryFormPlugin') ? array('/sfEPFactoryFormPlugin/js/jquery.min.js') : array('/sfAdminTemplatePlugin/js/jquery-1.5.1.min.js');
+      $javascripts[] = '/sfAdminTemplatePlugin/js/autoresize.jquery.js';
       $javascripts[] = '/sfAdminTemplatePlugin/js/jqtransformplugin/jquery.jqtransform.js';
       $javascripts[] = '/sfAdminTemplatePlugin/js/jquery.fancybox-1.3.4.pack.js';
       $javascripts[] = '/sfAdminTemplatePlugin/js/admin.js';
