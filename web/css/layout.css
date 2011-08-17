@@ -270,7 +270,8 @@ a.enhanced_toggleResult {display: none;}
 .sf_admin_object_actions_list li {opacity: 0.5; filter : alpha(opacity=50); -moz-opacity : 0.5; -ms-filter: "alpha(opacity=50)";}
 .sf_admin_object_actions_list li:hover {opacity: 1; filter : alpha(opacity=100); -moz-opacity : 1; -ms-filter: "alpha(opacity=100)";}
 .sf_admin_actions li img, .sf_admin_td_actions li img {max-height: 18px; max-width: 18px; margin-top: 2px;}
-.sf_admin_boolean label {margin-left: 25px; line-height: 18px !important;}
+.sf_admin_boolean label {min-width: inherit !important;}
+.sf_admin_boolean .jqTransformCheckboxWrapper {display: inline-block;}
 .sf_admin_enum li {float: left; width: auto;}
 .sf_admin_enum li .jqTransformRadioWrapper {float: left;}
 .sf_admin_enum li label {float: left; width: auto; line-height: 30px;}

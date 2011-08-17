@@ -240,9 +240,6 @@ span.jqTransformCheckboxWrapper{
   min-width: 100px;
   line-height: 30px;
 }
-.sf_admin_boolean span.jqTransformCheckboxWrapper{
-  margin-top: 0;
-}
 a.jqTransformCheckbox {
 	background: transparent url(img/checkbox.gif) no-repeat center top;
 	vertical-align: middle;

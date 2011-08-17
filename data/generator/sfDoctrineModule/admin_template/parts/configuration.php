@@ -160,7 +160,19 @@ abstract class Base<?php echo ucfirst($this->getModuleName()) ?>GeneratorConfigu
     // Test if relation exists
     if ($object->getTable()->hasRelation($name))
     {
-      $value = $object[$name] && !$object[$name]->isNew() ? $object[$name] : false;
+      if ($object->getTable()->getRelation($name)->getType() == Doctrine_Relation::MANY)
+      {
+        $relationValues = array();
+        foreach ($object[$name] as $relationValue)
+        {
+          $relationValues[] = (string)$relationValue;
+        }
+        $value = implode(', ', $relationValues);
+      }
+      else
+      {
+        $value = $object[$name] && !$object[$name]->isNew() ? $object[$name] : false;
+      }
     }
     return $value;
   }
