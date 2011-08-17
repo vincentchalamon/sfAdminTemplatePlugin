@@ -1,6 +1,6 @@
   protected function getRedirect(<?php echo $this->getModelClass() ?> $<?php echo $this->getSingularName() ?>)
   {
-    return '@<?php echo $this->getUrlForAction('show') ?>?id='.$<?php echo $this->getSingularName() ?>->getPrimaryKey();
+    return null;
   }
 
   protected function processForm(sfWebRequest $request, sfForm $form)
@@ -48,7 +48,7 @@
       {
         $this->getUser()->setFlash('notice', $notice);
 
-        $this->redirect(array('sf_route' => '<?php echo $this->getUrlForAction('edit') ?>', 'sf_subject' => $<?php echo $this->getSingularName() ?>));
+        $this->redirect(array('sf_route' => '<?php echo $this->getUrlForAction('show') ?>', 'sf_subject' => $<?php echo $this->getSingularName() ?>));
       }
     }
     else
