@@ -38,7 +38,7 @@ ul.pagination li.page a:hover {background: #00789F url(../images/bg_buttons.png)
 
 .alert {
   padding: 4px 4px 4px 35px;
-  background: url(../sfDoctrinePlugin/images/error.png) no-repeat 10px;
+  background: url(../../sfDoctrinePlugin/images/error.png) no-repeat 10px;
   border: 1px solid #ddd;
   background-color: #F6E3CE;
   color: #B45F04;
