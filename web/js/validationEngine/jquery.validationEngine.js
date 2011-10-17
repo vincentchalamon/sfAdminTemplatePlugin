@@ -125,7 +125,7 @@ $.validationEngine = {
 		rulesParsing = $(caller).attr('class');
 		rulesRegExp = /\[(.*)\]/;
 		getRules = rulesRegExp.exec(rulesParsing);
-		if(getRules == null) return false;
+		if(getRules == null || !caller.type) return false;
 		str = getRules[1];
 		pattern = /\[|,|\]/;
 		result= str.split(pattern);
