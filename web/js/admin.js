@@ -32,7 +32,7 @@ $(document).ready(function(){
   });
 
   // Login form
-  $('form').live('submit', function(){
+  $('form:not(.noJavascripts)').live('submit', function(){
     $('input:submit:not(.noRemove)', $(this)).hide();
     $('.loading:first', $(this)).show();
   }).validationEngine();
