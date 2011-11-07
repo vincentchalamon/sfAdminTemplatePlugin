@@ -1,9 +1,19 @@
 <?php use_javascripts_for_form($form) ?>
 <?php use_stylesheets_for_form($form) ?>
+
+<?php if($form->hasGlobalErrors()): ?>
+  <div class="notify error">
+    <?php echo $form->renderGlobalErrors() ?>
+  </div>
+<?php endif ?>
+
 <form action="<?php echo url_for('@sf_guard_signin') ?>" method="post">
   <?php echo $form->renderHiddenFields() ?>
   <p><?php echo $form['username']->renderLabel() ?></p>
   <?php echo $form['username']->render() ?>
+  <?php if($form['username']->hasError()): ?>
+    <div class="error"><?php echo $form['username']->renderError() ?></div>
+  <?php endif ?>
   <p><?php echo $form['password']->renderLabel() ?></p>
   <?php echo $form['password']->render() ?>
   <input type="submit" class="loginbtn noTransform" value="Se connecter" />
