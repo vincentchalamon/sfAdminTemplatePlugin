@@ -1,0 +1,4 @@
+sf_admin_dashboard:
+  url:   /admin/dashboard
+  param: { module: sfAdminDashboard, action: dashboard }
+  requirements: { sf_method: [get] }

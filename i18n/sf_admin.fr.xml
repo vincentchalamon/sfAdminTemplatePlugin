@@ -4,6 +4,64 @@
   <file original="global" source-language="en" datatype="plaintext">
     <header />
     <body>
+      <!-- Dashboard -->
+      <trans-unit>
+        <source>Administration | Dashboard</source>
+        <target>Administration | Tableau de bord</target>
+      </trans-unit>
+      <trans-unit>
+        <source>Dashboard</source>
+        <target>Tableau de bord</target>
+      </trans-unit>
+      <trans-unit>
+        <source>Visits</source>
+        <target>Visites</target>
+      </trans-unit>
+      <trans-unit>
+        <source>Popularity</source>
+        <target>Fréquentation du site</target>
+      </trans-unit>
+      <trans-unit>
+        <source>Incoming sources</source>
+        <target>Sources du trafic</target>
+      </trans-unit>
+      <trans-unit>
+        <source>Geografic synthesis</source>
+        <target>Synthèse géographique</target>
+      </trans-unit>
+      <trans-unit>
+        <source>Visitors</source>
+        <target>Visiteurs</target>
+      </trans-unit>
+      <trans-unit>
+        <source>Page views</source>
+        <target>Pages vues</target>
+      </trans-unit>
+      <trans-unit>
+        <source>Average page views</source>
+        <target>Nombre moyen de pages vues</target>
+      </trans-unit>
+      <trans-unit>
+        <source>Bouncing rate</source>
+        <target>Taux de rebond</target>
+      </trans-unit>
+      <trans-unit>
+        <source>Average time on site</source>
+        <target>Temps moyen sur le site</target>
+      </trans-unit>
+      <trans-unit>
+        <source>New visits</source>
+        <target>Nouvelles visites</target>
+      </trans-unit>
+      <trans-unit>
+        <source>View on GoogleAnalytics</source>
+        <target>Consulter sur Google Analytics</target>
+      </trans-unit>
+      <trans-unit>
+        <source>Unable to find website statistics. Maybe your GoogleAnalytics account is disabled or not accessible.</source>
+        <target>Impossible de récupérer les statistiques de votre site. Peut-être votre compte Google Analytics est-il désactivé ou inaccessible.</target>
+      </trans-unit>
+      
       <!-- Actions -->
       <trans-unit>
         <source>New</source>
