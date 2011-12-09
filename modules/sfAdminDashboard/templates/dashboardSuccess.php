@@ -7,7 +7,7 @@
 
 <div class="contentcontainer">
   <div class="headings">
-    <h2><?php echo __('SDashboard', null, 'sf_admin') ?></h2>
+    <h2><?php echo __('Dashboard', null, 'sf_admin') ?></h2>
   </div>
   <div class="contentbox">
     <div id="dashboard">
