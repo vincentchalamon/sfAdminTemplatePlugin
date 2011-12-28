@@ -41,6 +41,12 @@ Un thème personnalisé d'admin generator est intégré à ce plugin. Pour le pr
 * Renseignez le paramètre _theme_ par "admin_template"
 * Renseignez le bloc _show_ de la même manière que le bloc _list_, en renseignant les paramètres _title_ et _display_.
 
+Il est possible d'utiliser un template en colonnes pour vos formulaire d'admin generator. Pour cela, renseignez les paramètres suivants :
+
+* Ajouter un paramètre _template_ au contexte (form, edit, new), et renseignez-le avec "columns"
+* Ajouter un paramètre _columns_ au contexte (form, edit, new), et renseignez-le avec la liste des champs présents dans la colonne de droite : [name, url]
+* Renseignez le paramètre _display_ du contexte (form, edit, new) avec la liste des champs présents dans la colonne principale : [contents, description]
+
 Exemple de _generator.yml_ :
 
     generator:
@@ -65,6 +71,9 @@ Exemple de _generator.yml_ :
             title: %%name%%
             display: [name, value, slug]
           filter:  ~
-          form:    ~
+          form:
+            template: columns
+            display: [contents, description]
+            columns: [name, url]
           edit:    ~
           new:     ~
