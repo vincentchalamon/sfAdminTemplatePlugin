@@ -2,7 +2,7 @@
 [?php use_javascripts_for_form($form) ?]
 
 <div class="sf_admin_form">
-  [?php echo form_tag_for($form, '@<?php echo $this->params['route_prefix'] ?>', array('id' => $form->getName().'_form')) ?]
+  [?php if($configuration->{$form->isNew() ? "getNewTemplate" : "getEditTemplate"}() == "default") echo form_tag_for($form, '@<?php echo $this->params['route_prefix'] ?>', array('id' => $form->getName().'_form')) ?]
     [?php echo $form->renderHiddenFields(false) ?]
 
     [?php if ($form->hasGlobalErrors()): ?]
@@ -14,5 +14,5 @@
     [?php endforeach; ?]
 
     [?php include_partial('<?php echo $this->getModuleName() ?>/form_actions', array('<?php echo $this->getSingularName() ?>' => $<?php echo $this->getSingularName() ?>, 'form' => $form, 'configuration' => $configuration, 'helper' => $helper)) ?]
-  </form>
+  [?php if($configuration->{$form->isNew() ? "getNewTemplate" : "getEditTemplate"}() == "default"): ?]</form>[?php endif ?]
 </div>

@@ -1,5 +1,5 @@
 <div class="contentbox sf_admin_form">
-  [?php echo form_tag_for($form, '@article') ?]
+  [?php echo form_tag_for($form, '@<?php echo $this->params['route_prefix'] ?>', array('id' => $form->getName().'_form')) ?]
     [?php include_partial('<?php echo $this->getModuleName() ?>/form_header', array('<?php echo $this->getSingularName() ?>' => $<?php echo $this->getSingularName() ?>, 'form' => $form, 'configuration' => $configuration)) ?]
     [?php echo $form->renderHiddenFields(false) ?]
     <div class="left">

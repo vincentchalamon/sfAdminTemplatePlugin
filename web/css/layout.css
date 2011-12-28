@@ -145,13 +145,12 @@ tr.sf_admin_row:hover {background: #ddd;}
 /* Input/Form Styles */
 fieldset {border: thin solid #aaa; margin-bottom: 10px; -webkit-border-radius: 5px; -moz-border-radius: 5px; border-radius: 5px;}
 fieldset legend {background: #353535; padding: 5px 10px; color: white; text-transform: uppercase; font-weight: bold; font-size: 1.2em; -webkit-border-radius: 5px; -moz-border-radius: 5px; border-radius: 5px;}
-.right .jqTransformInputWrapper {width: 100% !important;}
+#fancybox-content .jqTransformInputWrapper, .right .jqTransformInputWrapper {width: 100% !important;}
 .jqTransformInputWrapper input {width: 100% !important;}
 /*form .jqTransformSelectWrapper {float: left; margin: 0 2px;}*/
 select {padding: 7px 10px; border: 1px solid #ccc; border-radius: 5px; -moz-border-radius: 5px; -webkit-border-radius: 5px;}
-#container label {cursor: pointer; padding-right: 20px; display: block; padding-bottom: 10px; font-weight: bold;}
+#fancybox-content label, #container label {cursor: pointer; padding-right: 20px; display: block; padding-bottom: 10px; font-weight: bold;}
 .right label {width: 200px;}
-/*.sf_admin_form label {clear: both;}*/
 input, textarea {font-family: Arial, Helvetica, sans-serif;}
 .inputbox, form input[type="text"], form input[type="password"] {border: 1px solid #999; padding: 3%; width: 94%; -moz-border-radius: 3px; border-radius: 3px; -webkit-border-radius: 3px; margin-bottom: 5px; color: #666; background: url(../images/bg_fade_sml.png) repeat-x top;}
 .errorbox {border: 1px solid #CC0000; background: #FCF0EF url(../images/bg_fade_red_sml.png) repeat-x top; color: #CC0000; margin-right: 5px;}
@@ -274,6 +273,7 @@ a.enhanced_toggleResult {display: none;}
 .sf_admin_boolean .jqTransformCheckboxWrapper {display: inline-block;}
 .sf_admin_enum li {float: left; width: auto;}
 .sf_admin_enum li .jqTransformRadioWrapper {float: left;}
+.sf_admin_enum .jqTransformSelectWrapper li {width: 100%;}
 .sf_admin_enum li label {float: left; width: auto; line-height: 30px;}
 .radio_list {margin-bottom: 25px; clear: both;}
 .radio_list li {float: left;}

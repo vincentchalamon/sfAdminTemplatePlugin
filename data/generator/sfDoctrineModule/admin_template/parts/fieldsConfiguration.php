@@ -42,19 +42,19 @@
 
   public function getEditTemplate()
   {
-    return '<?php echo $this->escapeString(isset($this->config['edit']['template']) ? $this->config['edit']['template'] : (isset($this->config['form']['template']) ? $this->config['form']['template'] : 'default')) ?>';
+    return sfContext::hasInstance() && sfContext::getInstance()->getRequest()->isXmlHttpRequest() ? 'default' : '<?php echo $this->escapeString(isset($this->config['edit']['template']) ? $this->config['edit']['template'] : (isset($this->config['form']['template']) ? $this->config['form']['template'] : 'default')) ?>';
 <?php unset($this->config['edit']['template']) ?>
   }
 
   public function getNewTemplate()
   {
-    return '<?php echo $this->escapeString(isset($this->config['new']['template']) ? $this->config['new']['template'] : (isset($this->config['form']['template']) ? $this->config['form']['template'] : 'default')) ?>';
+    return sfContext::hasInstance() && sfContext::getInstance()->getRequest()->isXmlHttpRequest() ? 'default' : '<?php echo $this->escapeString(isset($this->config['new']['template']) ? $this->config['new']['template'] : (isset($this->config['form']['template']) ? $this->config['form']['template'] : 'default')) ?>';
 <?php unset($this->config['new']['template']) ?>
   }
 
   public function getFormTemplate()
   {
-    return '<?php echo $this->escapeString(isset($this->config['form']['template']) ? $this->config['form']['template'] : 'default') ?>';
+    return sfContext::hasInstance() && sfContext::getInstance()->getRequest()->isXmlHttpRequest() ? 'default' : '<?php echo $this->escapeString(isset($this->config['form']['template']) ? $this->config['form']['template'] : 'default') ?>';
 <?php unset($this->config['form']['template']) ?>
   }
 
