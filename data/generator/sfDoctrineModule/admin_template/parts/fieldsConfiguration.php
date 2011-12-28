@@ -40,6 +40,30 @@
 <?php unset($this->config['filter']['display']) ?>
   }
 
+  public function getEditTemplate()
+  {
+    return '<?php echo $this->escapeString(isset($this->config['edit']['template']) ? $this->config['edit']['template'] : (isset($this->config['form']['template']) ? $this->config['form']['template'] : 'default')) ?>';
+<?php unset($this->config['edit']['template']) ?>
+  }
+
+  public function getNewTemplate()
+  {
+    return '<?php echo $this->escapeString(isset($this->config['new']['template']) ? $this->config['new']['template'] : (isset($this->config['form']['template']) ? $this->config['form']['template'] : 'default')) ?>';
+<?php unset($this->config['new']['template']) ?>
+  }
+
+  public function getFormTemplate()
+  {
+    return '<?php echo $this->escapeString(isset($this->config['form']['template']) ? $this->config['form']['template'] : 'default') ?>';
+<?php unset($this->config['form']['template']) ?>
+  }
+
+  public function getColumnsDisplay()
+  {
+    return <?php echo $this->asPhp(isset($this->config['form']['columns']) ? $this->config['form']['columns'] : array()) ?>;
+<?php unset($this->config['form']['columns']) ?>
+  }
+
   public function getFormDisplay()
   {
     return <?php echo $this->asPhp(isset($this->config['form']['display']) ? $this->config['form']['display'] : array()) ?>;

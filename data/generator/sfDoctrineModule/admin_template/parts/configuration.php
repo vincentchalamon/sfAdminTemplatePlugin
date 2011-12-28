@@ -40,11 +40,12 @@ abstract class Base<?php echo ucfirst($this->getModuleName()) ?>GeneratorConfigu
     $actions = $this->getActionsDefault();
     $this->configuration['credentials']['show'] = isset($actions['_show']['credentials']) ? $actions['_show']['credentials'] : array();
     $this->configuration['credentials']['batchShow'] = isset($actions['_show']['credentials']) ? $actions['_show']['credentials'] : array();
+    $this->configuration['columns'] = $this->configuration['edit'];
   }
 
   protected function getConfig()
   {
-    return array_merge(parent::getConfig(), array('show' => $this->getFieldsShow()));
+    return array_merge(parent::getConfig(), array('show' => $this->getFieldsShow(), 'columns' => $this->getFieldsDefault()));
   }
 
   /**
