@@ -23,7 +23,7 @@
   <div class="headings">
     <h2>[?php echo <?php echo $this->getI18NString('edit.title') ?> ?]</h2>
   </div>
-
+  
   [?php include_partial('<?php echo $this->getModuleName() ?>/form_header', array('<?php echo $this->getSingularName() ?>' => $<?php echo $this->getSingularName() ?>, 'form' => $form, 'configuration' => $configuration)) ?]
 
   [?php include_partial('<?php echo $this->getModuleName() ?>/form_'.$configuration->getEditTemplate(), array('<?php echo $this->getSingularName() ?>' => $<?php echo $this->getSingularName() ?>, 'form' => $form, 'configuration' => $configuration, 'helper' => $helper)) ?]

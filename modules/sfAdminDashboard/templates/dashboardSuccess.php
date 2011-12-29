@@ -18,7 +18,7 @@
             <?php echo $ga->getRawValue()->getGapiAreaChart(array("date"), array("visits"), "date", null, date('Y-m-d', strtotime("-20 days"))) ?>
           </div>
           <div class="access">
-            <a target="_blank" href="https://www.google.com/analytics/reporting/?id=<?php echo sfConfig::get('google_analytics_profile') ?>"><?php echo __("View on GoogleAnalytics", null, "sf_admin") ?></a>
+            <a target="_blank" href="<?php echo $ga->getLinkToReport() ?>"><?php echo __("View on GoogleAnalytics", null, "sf_admin") ?></a>
           </div>
         </div>
         <div class="element frequentation">
@@ -49,7 +49,7 @@
             </table>
           </div>
           <div class="access">
-            <a target="_blank" href="https://www.google.com/analytics/reporting/?id=<?php echo sfConfig::get('google_analytics_profile') ?>"><?php echo __("View on GoogleAnalytics", null, "sf_admin") ?></a>
+            <a target="_blank" href="<?php echo $ga->getLinkToReport() ?>"><?php echo __("View on GoogleAnalytics", null, "sf_admin") ?></a>
           </div>
         </div>
         <div class="element left sources">
@@ -58,7 +58,7 @@
             <?php echo $ga->getRawValue()->getGapiPieChart(array("source"), array("visits"), "-visits", null, null, null, 1, 5) ?>
           </div>
           <div class="access">
-            <a target="_blank" href="https://www.google.com/analytics/reporting/?id=<?php echo sfConfig::get('google_analytics_profile') ?>"><?php echo __("View on GoogleAnalytics", null, "sf_admin") ?></a>
+            <a target="_blank" href="<?php echo $ga->getLinkToReport() ?>"><?php echo __("View on GoogleAnalytics", null, "sf_admin") ?></a>
           </div>
         </div>
         <div class="element right origine">
@@ -67,7 +67,7 @@
             <?php echo $ga->getRawValue()->getGapiMap(array("country"), array("visits")) ?>
           </div>
           <div class="access">
-            <a target="_blank" href="https://www.google.com/analytics/reporting/?id=<?php echo sfConfig::get('google_analytics_profile') ?>"><?php echo __("View on GoogleAnalytics", null, "sf_admin") ?></a>
+            <a target="_blank" href="<?php echo $ga->getLinkToReport() ?>"><?php echo __("View on GoogleAnalytics", null, "sf_admin") ?></a>
           </div>
         </div>
         <div class="clear"></div>

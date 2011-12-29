@@ -33,7 +33,8 @@ class gapi
   const report_data_url = 'https://www.google.com/analytics/feeds/data';
   const interface_name = 'GAPI-1.3';
   const dev_mode = false;
-  const report_url = 'https://www.google.com/analytics/reporting/?id=%report_id%';
+  //const report_url = 'https://www.google.com/analytics/reporting/?id=%report_id%';
+  const report_url = 'https://www.google.com/analytics/web/#report/visitors-overview/a8749552w16603850p%report_id%/';
   
   private $auth_token = null;
   private $report_id = null;

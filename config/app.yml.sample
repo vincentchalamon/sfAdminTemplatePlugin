@@ -3,7 +3,7 @@ all:
   sf_admin_template:
     # Configuration du menu
     menus:
-      # Création d'un élément de menu "article"
+      # Création d'un élément de menu
       dashboard:
         label: Tableau de bord
         credentials: [admin]
@@ -13,6 +13,4 @@ all:
     # Configuration de GoogleAnalytics
     google_analytics:
       code: "UA-1234567-1"
-      login: monlogin
-      password: monpassword
       profile: 12345678
