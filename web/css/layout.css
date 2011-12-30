@@ -295,6 +295,8 @@ a.enhanced_toggleResult {display: none;}
 .sf_admin_object_actions_list .sf_admin_td_actions li.sf_admin_action_add a{background-image: url("../images/btn_add.png");}
 .sf_admin_object_actions_list .sf_admin_td_actions li.sf_admin_action_publish a{background-image: url("../images/btn_publish.png");}
 .sf_admin_object_actions_list .sf_admin_td_actions li.sf_admin_action_unpublish a{background-image: url("../images/btn_unpublish.png");}
+.sf_admin_object_actions_list .sf_admin_td_actions li.sf_admin_action_enable a{background-image: url("../images/btn_enable.png");}
+.sf_admin_object_actions_list .sf_admin_td_actions li.sf_admin_action_disable a{background-image: url("../images/btn_delete.png");}
 #fancybox-content{-moz-box-shadow: 0 0 2px 2px #999; -webkit-box-shadow: 0 0 2px 2px #999; box-shadow: 0 0 2px 2px #999;}
 .sf_admin_list_actions li {float: left; margin: 5px; line-height: 16px; background: url("../images/icon_default.png") no-repeat left top;}
 .sf_admin_list_actions li a {padding-left: 20px; text-decoration: none;}

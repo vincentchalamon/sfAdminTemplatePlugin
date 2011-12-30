@@ -5,6 +5,13 @@
   </div>
 [?php endif; ?]
 
+[?php if ($sf_user->hasFlash('success')): ?]
+  <div class="status success">
+    <p class="closestatus"><a href="#" title="Close">x</a></p>
+    <p>[?php echo image_tag(public_path('/sfAdminTemplatePlugin/images/icon_success.png'), array('alt' => 'Succès', 'title' => 'Success')) ?]<span>Succès!</span> [?php echo __($sf_user->getFlash('success'), array(), 'sf_admin') ?]</p>
+  </div>
+[?php endif; ?]
+
 [?php if ($sf_user->hasFlash('error')): ?]
   <div class="status error">
     <p class="closestatus"><a href="#" title="Close">x</a></p>
