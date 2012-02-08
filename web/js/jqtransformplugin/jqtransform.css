@@ -216,7 +216,7 @@ table.jqTransformTextarea .jqTransformSafariTextarea textarea{
  * ------------- */
 .jqTransformRadioWrapper {display:block;margin:0px 4px;	margin-top:5px;}
 .jqTransformRadio {
-	background: transparent url(img/radio.gif) no-repeat center top;
+	background: transparent url(img/radio.png) no-repeat center top;
 	vertical-align: middle;
 	height: 19px;
 	width: 18px;
