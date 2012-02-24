@@ -32,22 +32,24 @@
         <?php endif ?>
       </div>
 
-      <?php $menus = sfConfig::get('app_sf_admin_template_menus', array()) ?>
-      <?php if(count($menus)): ?>
-        <!-- Top Menu Start -->
-        <div id="main_menu">
-          <div>
-            <ul>
-              <?php foreach($menus as $name => $options): ?>
-                <?php if(!isset($options['credentials']) || !count($options['credentials']) || $sf_user->hasCredential($options['credentials'])): ?>
-                  <?php if(!isset($options['route_prefix'])) $options['route_prefix'] = $name ?>
-                  <li<?php if(get_slot('menu') == $options['route_prefix']): ?> class="current"<?php endif ?>><?php echo link_to($options['label'], '@'.$options['route_prefix'], array('title' => $options['label'])) ?></li>
-                <?php endif ?>
-              <?php endforeach ?>
-            </ul>
+      <?php if($sf_user->isAuthenticated()): ?>
+        <?php $menus = sfConfig::get('app_sf_admin_template_menus', array()) ?>
+        <?php if(count($menus)): ?>
+          <!-- Top Menu Start -->
+          <div id="main_menu">
+            <div>
+              <ul>
+                <?php foreach($menus as $name => $options): ?>
+                  <?php if(!isset($options['credentials']) || !count($options['credentials']) || $sf_user->hasCredential($options['credentials'])): ?>
+                    <?php if(!isset($options['route_prefix'])) $options['route_prefix'] = $name ?>
+                    <li<?php if(get_slot('menu') == $options['route_prefix']): ?> class="current"<?php endif ?>><?php echo link_to($options['label'], '@'.$options['route_prefix'], array('title' => $options['label'])) ?></li>
+                  <?php endif ?>
+                <?php endforeach ?>
+              </ul>
+            </div>
           </div>
-        </div>
-        <!-- Top Menu End -->
+          <!-- Top Menu End -->
+        <?php endif ?>
       <?php endif ?>
 
       <?php $breadcrumb = get_slot('breadcrumb', array()) ?>
