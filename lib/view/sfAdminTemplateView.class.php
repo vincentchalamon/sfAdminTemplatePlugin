@@ -22,7 +22,7 @@ class sfAdminTemplateView extends sfPHPView
         $response->addStylesheet($css, 'first', array('media' => 'all'));
       }
       // Javascripts
-      $javascripts = is_dir(sfConfig::get('sf_plugins_dir').'/sfEPFactoryFormPlugin') ? array('/sfEPFactoryFormPlugin/js/jquery.min.js') : array('/sfAdminTemplatePlugin/js/jquery-1.5.1.min.js');
+      $javascripts = is_dir(sfConfig::get('sf_plugins_dir').'/sfEPFactoryFormPlugin') ? array('/sfEPFactoryFormPlugin/js/jquery.min.js') : array('/sfAdminTemplatePlugin/js/jquery.min.js');
       $javascripts[] = '/sfAdminTemplatePlugin/js/autoresize.jquery.js';
       $javascripts[] = '/sfAdminTemplatePlugin/js/jqtransformplugin/jquery.jqtransform.js';
       $javascripts[] = '/sfAdminTemplatePlugin/js/jquery.fancybox-1.3.4.pack.js';
@@ -30,7 +30,7 @@ class sfAdminTemplateView extends sfPHPView
       $javascripts[] = '/sfAdminTemplatePlugin/js/validationEngine/jquery.validationEngine-fr.js';
       $javascripts[] = '/sfAdminTemplatePlugin/js/validationEngine/jquery.validationEngine.js';
       foreach($javascripts as $js) {
-        $response->addJavascript($js, preg_match('/(jquery\.min\.js|jquery\-1\.5\.1\.min\.js)/i', $js) ? 'first' : '');
+        $response->addJavascript($js, preg_match('/(jquery\.min\.js)/i', $js) ? 'first' : '');
       }
       if($this->decoratorTemplate == "clean".$this->getExtension()) {
         $response->addStylesheet('/sfAdminTemplatePlugin/css/login.css', '', array('media' => 'all'));

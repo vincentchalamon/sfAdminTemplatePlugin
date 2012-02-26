@@ -42,7 +42,7 @@
                   <td><?php echo $ga->getRawValue()->getPageviews() ?></td>
                   <td><?php echo $ga->getRawValue()->getPageviews() > 0 && $ga->getRawValue()->getVisits() > 0 ? round($ga->getRawValue()->getPageviews() / $ga->getRawValue()->getVisits()) : 0 ?></td>
                   <td><?php echo round(($ga->getRawValue()->getBounces() * 100) / $ga->getRawValue()->getVisits(), 2) ?>%</td>
-                  <td><?php echo format_datetime($ga->getRawValue()->getTimeOnSite() / $ga->getRawValue()->getVisits(), "s", $sf_user->getCulture()) ?></td>
+                  <td><?php echo gmdate("H:i:s", round($ga->getRawValue()->getTimeOnSite() / $ga->getRawValue()->getVisits(), 0)) ?></td>
                   <td><?php echo $ga->getRawValue()->getNewVisits() ?></td>
                 </tr>
               </tbody>
