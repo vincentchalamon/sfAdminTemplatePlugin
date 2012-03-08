@@ -77,3 +77,6 @@ Exemple de _generator.yml_ :
             columns: [name, url]
           edit:    ~
           new:     ~
+
+![](http://enjinsha.free.fr/dashboard.png)
+![](http://enjinsha.free.fr/form.png)
