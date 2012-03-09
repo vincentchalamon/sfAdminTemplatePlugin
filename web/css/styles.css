@@ -99,3 +99,7 @@ ul.pagination li.page a:hover {background: #00789F url(../images/bg_buttons.png)
   width: 170px;
   font-size: 16px;
 }
+
+.chrome .jqTransformInputInner div input {
+  padding-top: 0 !important;
+}
