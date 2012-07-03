@@ -1,7 +1,7 @@
 <?php use_helper('I18N', 'Date') ?>
 <?php $sf_response->addMeta('title', __("Administration | Dashboard", null, "sf_admin")) ?>
 <?php slot('breadcrumb', array(array('url' => '@sf_admin_dashboard', 'label' => 'Tableau de bord'))) ?>
-<?php slot('menu', 'dashboard') ?>
+<?php slot('menu', 'sf_admin_dashboard') ?>
 <?php use_stylesheet(public_path('/sfAdminTemplatePlugin/css/dashboard.css')) ?>
 <?php include_partial('sfAdminDashboard/flashes') ?>
 
