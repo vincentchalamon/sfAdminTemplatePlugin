@@ -2,7 +2,7 @@ Vincent CHALAMON <vincentchalamon@gmail.com>
 
 # Configuration
 
-Ce plugin symfony 1.4 fournit un thème d'administration avec son propre Admin Generator. Il peut être combiné avec le plugin [sfEPFactoryFormPlugin](https://github.com/vincentchalamon/sfEPFactoryFormPlugin).
+Ce plugin symfony 1.4 fournit un thème d'administration avec son propre Admin Generator. Il peut être combiné avec le plugin [sfEPFactoryFormPlugin](http://www.symfony-project.org/plugins/sfEPFactoryFormPlugin).
 
 ## View.yml
 Vous souhaitez utiliser ce thème sur toute votre application ou simplement un module ? Il vous suffit d'éditer (ou créer) le fichier _view.yml_ du répertoire _config_ de votre application ou module, et d'y appliquer l'un des layouts proposé par le plugin :
@@ -77,6 +77,3 @@ Exemple de _generator.yml_ :
             columns: [name, url]
           edit:    ~
           new:     ~
-
-![](http://enjinsha.free.fr/dashboard.png)
-![](http://enjinsha.free.fr/form.png)
