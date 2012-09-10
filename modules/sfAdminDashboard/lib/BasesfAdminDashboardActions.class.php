@@ -11,6 +11,7 @@ class BasesfAdminDashboardActions extends sfActions
 {
   public function executeDashboard(sfWebRequest $request)
   {
+    return $this->redirect('@article');
     try
     {
       $this->ga = new gapi(sfConfig::get('google_analytics_login'), sfConfig::get('google_analytics_password'), sfConfig::get('google_analytics_profile'));
