@@ -10,7 +10,3 @@ all:
         route_prefix: sf_admin_dashboard
     # Configuration des templates (défaut : admin, clean)
     templates: [admin, clean, myLayout]
-    # Configuration de GoogleAnalytics
-    google_analytics:
-      code: "UA-1234567-1"
-      profile: 12345678
