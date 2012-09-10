@@ -4,9 +4,9 @@ all:
     # Configuration du menu
     menus:
       # Création d'un élément de menu
-      dashboard:
-        label: Tableau de bord
+      article:
+        label: Articles
         credentials: [admin]
-        route_prefix: sf_admin_dashboard
+        route_prefix: article
     # Configuration des templates (défaut : admin, clean)
     templates: [admin, clean, myLayout]
