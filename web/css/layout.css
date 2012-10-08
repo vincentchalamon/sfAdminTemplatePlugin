@@ -48,7 +48,7 @@ table tfoot .jqTransformSelectWrapper {float: left;}
 
 #leftside {width: 225px; height: 100%; background: #525252 url(../images/bg_leftside.png) repeat-x top; position: absolute; top: 70px; border-right:1px solid #fff; padding-top: 10px;}
 
-.user, .notifications {float: right; width:210px; padding: 10px; color: #ccc; text-shadow: 1px 1px 1px #111;}
+.user, .notifications {float: right; width:250px; padding: 10px; color: #ccc; text-shadow: 1px 1px 1px #111;}
 .notifications {width: 140px; margin-top: 5px;}
 .user img {float: right;}
 .username {font-size: 18px; font-weight:700; letter-spacing: -1px; clear: none;}
