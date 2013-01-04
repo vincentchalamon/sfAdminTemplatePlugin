@@ -122,7 +122,11 @@ abstract class Base<?php echo ucfirst($this->getModuleName()) ?>GeneratorConfigu
   {
     $options = $object->getTable()->getColumnDefinition($name);
     // Default value
-    $value = $object->{"get".ucfirst(sfInflector::classify($name))}();
+    if (method_exists($object, "get".ucfirst(sfInflector::classify($name)))) {
+      $value = call_user_func(array($object, "get".ucfirst(sfInflector::classify($name))));
+    } else {
+      $value = $object[$name];
+    }
     // Field is relation
     /*if (preg_match('/_id$/i', $name) && $this->retrieveRelationName($object, $name))
     {
