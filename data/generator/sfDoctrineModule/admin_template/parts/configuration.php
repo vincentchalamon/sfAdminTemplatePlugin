@@ -122,7 +122,7 @@ abstract class Base<?php echo ucfirst($this->getModuleName()) ?>GeneratorConfigu
   {
     $options = $object->getTable()->getColumnDefinition($name);
     // Default value
-    if (method_exists($object, "get".ucfirst(sfInflector::classify($name)))) {
+    if (is_callable(array($object, "get".ucfirst(sfInflector::classify($name))))) {
       $value = call_user_func(array($object, "get".ucfirst(sfInflector::classify($name))));
     } else {
       $value = $object[$name];

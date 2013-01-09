@@ -23,7 +23,7 @@
 
 <?php else: ?>
   <li class="sf_admin_action_<?php echo $params['class_suffix'] ?>">
-[?php if (method_exists($helper, 'linkTo<?php echo $method = ucfirst(sfInflector::classify(preg_replace('/^_(.*)/i', '$1', $name))) ?>')): ?]
+[?php if (is_callable(array($helper, 'linkTo<?php echo $method = ucfirst(sfInflector::classify(preg_replace('/^_(.*)/i', '$1', $name))) ?>'))): ?]
   <?php echo $this->addCredentialCondition('[?php echo $helper->linkTo'.$method.'($form->getObject(), '.$this->asPhp($params).') ?]', $params) ?>
 
 [?php else: ?]

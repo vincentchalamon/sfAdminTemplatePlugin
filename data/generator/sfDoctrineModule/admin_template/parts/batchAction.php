@@ -16,7 +16,7 @@
       $this->redirect('@<?php echo $this->getUrlForAction('list') ?>');
     }
 
-    if (!method_exists($this, $method = 'execute'.ucfirst($action)))
+    if (!is_callable(array($this, $method = 'execute'.ucfirst($action))))
     {
       throw new InvalidArgumentException(sprintf('You must create a "%s" method for action "%s"', $method, $action));
     }
