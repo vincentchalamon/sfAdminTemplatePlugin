@@ -1,5 +1,3 @@
-Vincent CHALAMON <vincentchalamon@gmail.com>
-
 # Configuration
 
 Ce plugin symfony 1.4 fournit un thème d'administration avec son propre Admin Generator. Il peut être combiné avec le plugin [sfEPFactoryFormPlugin](http://www.symfony-project.org/plugins/sfEPFactoryFormPlugin).
