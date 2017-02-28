@@ -44,10 +44,10 @@
       if(!settings.returnIsValid){					// NEEDED FOR THE SETTING returnIsValid
         allowReturnIsvalid = false;
         if(settings.liveEvent){						// LIVE event, vast performance improvement over BIND
-          $(this).find("[class*=validate][type!=checkbox]").live(settings.validationEventTriggers, function(caller){
+          $(this).find("[class*=validate][type!=checkbox]").bind(settings.validationEventTriggers, function(caller){
             _inlinEvent(this);
           })
-          $(this).find("[class*=validate][type=checkbox]").live("click", function(caller){
+          $(this).find("[class*=validate][type=checkbox]").bind("click", function(caller){
             _inlinEvent(this);
           })
         }else{
@@ -99,7 +99,7 @@
         }
       }
     })
-    $(".formError").live("click",function(){	 // REMOVE BOX ON CLICK
+    $(".formError").bind("click",function(){	 // REMOVE BOX ON CLICK
       $(this).fadeOut(150,function(){
         $(this).remove()
         })

@@ -14,7 +14,7 @@ $(document).ready(function(){
     $('#main_menu').append($('<a href="#" id="main_menu_previous" style="display: none;">&lang;</a>'));
     $('#main_menu').prepend($('<a href="#" id="main_menu_next">&rang;</a>'));
   }
-  $('#main_menu_previous').live('click', function(event){
+  $('#main_menu_previous').bind('click', function(event){
     event.preventDefault();
     if(parseInt($('#main_menu ul').css('left')) + $('#main_menu div:first').outerWidth(true) >= 0) {
       $('#main_menu_previous').hide();
@@ -22,7 +22,7 @@ $(document).ready(function(){
     $('#main_menu ul').animate({left: "+=" + $('#main_menu div:first').outerWidth(true)}, "slow");
     $('#main_menu_next').show();
   });
-  $('#main_menu_next').live('click', function(event){
+  $('#main_menu_next').bind('click', function(event){
     event.preventDefault();
     if(-parseInt($('#main_menu ul').css('left'))+($('#main_menu div:first').outerWidth(true)*2) >= getMenuWidth()) {
       $('#main_menu_next').hide();
@@ -32,7 +32,7 @@ $(document).ready(function(){
   });
 
   // Login form
-  $('form').live('submit', function(){
+  $('form').bind('submit', function(){
     $('input:submit:not(.noRemove)', $(this)).hide();
     $('.loading:first', $(this)).show();
   }).validationEngine();
@@ -43,7 +43,7 @@ $(document).ready(function(){
   }
 
   // Flashes
-  $('.closestatus a').live('click', function(event){
+  $('.closestatus a').bind('click', function(event){
     event.preventDefault();
     $(this).parents('.status').fadeOut();
   });
